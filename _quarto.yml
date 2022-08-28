@@ -9,6 +9,7 @@ book:
     - index.qmd
     - intro.qmd
     - 02-Description.qmd
+  number_sections: true
   number-depth: 4
 
 
