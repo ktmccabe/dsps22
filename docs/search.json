@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "dsps22",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "This document will include important links and course notes for 01:790:391:01: Data Science for Political Science for the fall 2022 semester.\n\nThis site will be updated throughout the semester with new content.\nThe Canvas modules will provide links to the relevant sections to review for a given week of the course.\nThe primary text for the course is Quantitative Social Science: An Introduction by Kosuke Imai. We will refer to this as QSS in the notes.\nThis is a new and living document. If you spot errors or have questions or suggestions, please email me at k.mccabe@rutgers.edu or post to the course Canvas site.\nOccasionally the notes are updated with embedded video explainers of the code in different sections.\n\n\n\nFirst: What is Data Science?\n\nData Science involves a combination of math/statistics and programming/coding skills, which, for our purposes, we will combine with social science knowledge.\n\nDrew Conway has a nice venn diagram of how these different skill sets intersect.\nNote: This course will not assume prior familiarity with data science in general or coding, specifically. For those brand new to data science, the idea of learning to code may seem intimidating, but anyone can succeed with a bit of patience and an open mind."
   },
   {
     "objectID": "intro.html",
