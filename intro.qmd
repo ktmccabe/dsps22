@@ -84,12 +84,12 @@ By the end of the first week of the course, you will want to have R and RStudio 
 
 R is an application that processes the R programming language in a statistical computing environment. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.   
 
-In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program.   
+In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program. You might also encounter the Python language at some point. R and Python have similarities, and learning R can also make learning Python easier down the road.   
 
 
 **R and RStudio Installation**
 
-This content follows and reinforces QSS 1.3. Additional resources are also linked below.
+This content follows and reinforces section QSS 1.3 in our book. Additional resources are also linked below.
 
   - This [video](http://www.youtube.com/embed/ulIv0NiVTs4?rel=0) from Professor Christopher Bail explains why many social scientists use R and describes the R and RStudio installation process. This involves
     1. Going to [cran](https://cran.r-project.org/), select the link that matches your operating system, and
@@ -124,12 +124,6 @@ RStudio is an open-source and free program that greatly facilitates the use of R
 
 Now you should have something that looks like this, similar to Figure 1.1. in QSS:
 
-![](images/rconsole2.png)**Note:** The first time you open RStudio, you likely only have the three windows above. We will want to create a fourth window by **opening an R script** to create the fourth window. 
-
-  - To do this, in RStudio, click on File -> New -> R script in your computer's toolbar. This will open a blank document for text editing in the upper left of the RStudio window. We will return to this window in a moment.
-      + You can alternatively click on the green + sign indicator in the top-left corner of the RStudio window, which should give you the option to create a new R script document.
-
-Now you should have something that looks like this, similar to Figure 1.1. in QSS:
 
 ![](images/rconsole2.png)
 
@@ -159,7 +153,7 @@ The *bottom left* window in your RStudio is the Console. You can type in this wi
 (5 + 3) * 2
 ```
 
-In the other RStudio windows, the upper right will show a history of commands that you have sent from the text editor to the R console, along with other items. The lower right will show graphs, help documents and other features. These will be useful later in the course.
+Again, in the other RStudio windows, the upper right will show a history of commands that you have sent from the text editor to the R console, along with other items. The lower right will show graphs, help documents and other features. These will be useful later in the course.
 
 ### Working in an R Script
 
@@ -167,7 +161,7 @@ Earlier, I asked you to open an R script in the upper left window by doing File,
 
 **Set your working directory `setwd()`**
 
-(Almost) every time you work in RStudio, the first thing you will do is set your working directory. This is a designated folder in your computer where you will save your R scripts and datasets.
+Many times you work in RStudio, the first thing you will do is set your working directory. This is a designated folder in your computer where you will save your R scripts and datasets.
 
 There are many ways to do this.
 
@@ -176,7 +170,7 @@ There are many ways to do this.
   - If you aren't sure where your directory has been set, you can also type `getwd()` in your Console. Try it now
 
 
-```{r, eval=F}
+```{r, eval=T}
 ## Example of where my directory was
 getwd()
 ```
@@ -213,7 +207,7 @@ Now that we have saved our R script, let's work inside of it. Remember, we are i
 
 ### Executing Commands in your R script
 
-The last thing we will note in this initial handout is how to execute commands in your R script.
+The last thing we will note in this section is how to execute commands in your R script.
 
 To run / execute a command in your R script (the upper left window), you can
 
@@ -249,7 +243,7 @@ Sometimes we will want to store our calculations as "objects" in R. We use `<-` 
 sum53 <- 5 + 3
 ```
 
-After we execute this code, `sum53 now stores the calculation. This means, that if we execute a line of code that just has `sum53`, it will output 8. Try  it:
+After we execute this code, `sum53` now stores the calculation. This means, that if we execute a line of code that just has `sum53`, it will output 8. Try  it:
 
 ```{r}
 sum53
@@ -313,33 +307,13 @@ mccabe / 2
 A big part of learning to use R will be learning how to troubleshoot and detect typos in your code that generate error messages.
 
 
-## Assignment 1 
-
-Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts, as well as locate important course platforms.
-
-We will walk through this assignment together during class, but you are welcome to try to do this ahead of time on your own. You will submit, on Canvas, two documents prior to the deadline.
-
-  - An R script (.R) file with your code. Follow the best practices by titling your script and using \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.
-  - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.
-      + You may also alternatively submit a compiled RMarkdown document. We will discuss what RMarkdown is during class.
-
-***Assignment Exercises***
-
-  1. Create an R script saved as ``LastnameSetup1.R" (use your last name). Within the R script, follow the example from  this handout and title the script.
-  2. Set your working directory, and include the file pathway (within `setwd()`) at the top of your .R script.
-  3. Do the calculation 8 + 3 - 2 in R. Store it as an object with an informative name. Report the answer.
-  4. Do the calculation 5 x 3 in R. Store it as an object with an informative name. Report the answer.
-  5. Add these two calculations together. Note: do this by adding together the objects you created, not the underlying raw calculations. Report the answer.
-  6.  Write down how you will complete your R assignments this semester. For example, if you have a personal laptop with R and RStudio on it, you will simply write "I will use my personal laptop." If you don't have a personal computer or laptop, please indicate where on campus or off-campus you will have regular access to a computer with R/RStudio to do your work. It is essential that you have regular access to a computer so that you will not fall behind in this course.
-  7. Navigate to the course Piazza site and post a message. This can be as simple as "hello" or a reply to another person's post. (No need to report this in your submission.)
-
 ## R Markdown
 
 An R Markdown document, which you can create in RStudio, allows you to weave together regular text, R code, and the output of R code in the same document. This can be very convenient when conducting data analysis because it allows you more space to explain what you are doing in each step. It can also be an effective platform for writing a report on a data analysis, similar to what you do when you write up a problem set.
 
 ***Note: RMarkdown is not required for this course. It is up to you if you would like to write your problem sets in RMarkdown***
 
-R Markdown documents can be "compiled" into html, pdf, or docx documents. Below is an example of what a compiled html file looks like.
+R Markdown documents can be "compiled" into html, pdf, or docx documents by clicking the `Knit` button on top of the upper-left window. Below is an example of what a compiled html file looks like.
 
   - Note that the image has both written text and a gray chunk, within which there is some R code, as well as the output of the R code (e.g., the number 8 and the image of the histogram plot)
 
@@ -348,3 +322,31 @@ R Markdown documents can be "compiled" into html, pdf, or docx documents. Below 
 We say this is a "compiled" RMarkdown document because it differs from the raw version of the file, which is a .Rmd file format. Below is an example of what the raw .Rmd version looks like, compared to the compiled html version.
 
 ![](images/rmarkdownraw.png){width=45%} ![](images/rmarkdownscreenshot.png){width=40%}
+
+
+
+## Assignment 1 
+
+Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files, as well as locate important course platforms.
+
+We will start walking through this assignment together during class, but you are welcome to try to do this ahead of time on your own. 
+
+You will submit, on Canvas, either 
+
+  1. Two documents:
+    - An R script (.R) file with your code. Follow the best practices by titling your script and using \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.
+    - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.
+  2. ***OR*** One document:
+    - You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after "knitting" your .Rmd file. This should also have a title including your name and use text or \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down. 
+
+The assignment instructions on Canvas provide a few templates for R scripts, Rmd files, and document answers.
+
+***Assignment Exercises***
+
+  1. Create an R script saved as ``LastnameSetup1.R" (use your last name) or Rmd file ``LastnameSetup1.R". Within this file, make sure to title it and provide your name. 
+  2. Set your working directory, and include the file pathway (within `setwd()`) at the top of your .R script.
+  3. Do the calculation 8 + 4 - 5 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.
+  4. Do the calculation 6 x 3 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.
+  5. Add these two calculations together. Note: do this by adding together the objects you created, not the underlying raw calculations. Report the answer.
+  6.  Write down how you will complete your R assignments this semester. For example, if you have a personal laptop with R and RStudio on it, you will simply write "I will use my personal laptop." If you don't have a personal computer or laptop, please indicate where on campus or off-campus you will have regular access to a computer with R/RStudio to do your work. It is ***essential*** that you have regular access to a computer so that you will not fall behind in this course.
+  7. Navigate to the Canvas discussion forum for Week 1 and post a message. This can be as simple as "hello" or a reply to another person's post. (No need to report this in your submission.)

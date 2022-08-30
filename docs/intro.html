@@ -192,8 +192,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#executing-commands-in-your-r-script" id="toc-executing-commands-in-your-r-script" class="nav-link" data-scroll-target="#executing-commands-in-your-r-script"> <span class="header-section-number">1.3.5</span> Executing Commands in your R script</a></li>
   <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"> <span class="header-section-number">1.3.6</span> Objects</a></li>
   </ul></li>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1"> <span class="header-section-number">1.4</span> Assignment 1</a></li>
-  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"> <span class="header-section-number">1.5</span> R Markdown</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"> <span class="header-section-number">1.4</span> R Markdown</a></li>
+  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link" data-scroll-target="#assignment-1"> <span class="header-section-number">1.5</span> Assignment 1</a></li>
   </ul>
 </nav>
 </nav>
@@ -297,9 +297,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Goal</strong></p>
 <p>By the end of the first week of the course, you will want to have R and RStudio installed on your computer (both free) and feel comfortable using R as a calculator.</p>
 <p>R is an application that processes the R programming language in a statistical computing environment. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.</p>
-<p>In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program.</p>
+<p>In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program. You might also encounter the Python language at some point. R and Python have similarities, and learning R can also make learning Python easier down the road.</p>
 <p><strong>R and RStudio Installation</strong></p>
-<p>This content follows and reinforces QSS 1.3. Additional resources are also linked below.</p>
+<p>This content follows and reinforces section QSS 1.3 in our book. Additional resources are also linked below.</p>
 <ul>
 <li>This <a href="http://www.youtube.com/embed/ulIv0NiVTs4?rel=0">video</a> from Professor Christopher Bail explains why many social scientists use R and describes the R and RStudio installation process. This involves
 <ol type="1">
@@ -323,14 +323,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>RStudio is an open-source and free program that greatly facilitates the use of R, especially for users new to programming. Once you have downloaded and installed R and RStudio, to work in R, all you need to do now is <strong><em>open RStudio</em></strong> (it will open R). It should look like this, though your version numbers will be different:</p>
 <p><img src="images/rconsole1.png" class="img-fluid"></p>
 <p><strong>Note:</strong> The first time you open RStudio, you likely only have the three windows above. We will want to create a fourth window by <strong>opening an R script</strong> to create the fourth window.</p>
-<ul>
-<li>To do this, in RStudio, click on File -&gt; New -&gt; R script in your computer’s toolbar. This will open a blank document for text editing in the upper left of the RStudio window. We will return to this window in a moment.
-<ul>
-<li>You can alternatively click on the green + sign indicator in the top-left corner of the RStudio window, which should give you the option to create a new R script document.</li>
-</ul></li>
-</ul>
-<p>Now you should have something that looks like this, similar to Figure 1.1. in QSS:</p>
-<p><img src="images/rconsole2.png" class="img-fluid"><strong>Note:</strong> The first time you open RStudio, you likely only have the three windows above. We will want to create a fourth window by <strong>opening an R script</strong> to create the fourth window.</p>
 <ul>
 <li>To do this, in RStudio, click on File -&gt; New -&gt; R script in your computer’s toolbar. This will open a blank document for text editing in the upper left of the RStudio window. We will return to this window in a moment.
 <ul>
@@ -375,13 +367,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 16</code></pre>
 </div>
 </div>
-<p>In the other RStudio windows, the upper right will show a history of commands that you have sent from the text editor to the R console, along with other items. The lower right will show graphs, help documents and other features. These will be useful later in the course.</p>
+<p>Again, in the other RStudio windows, the upper right will show a history of commands that you have sent from the text editor to the R console, along with other items. The lower right will show graphs, help documents and other features. These will be useful later in the course.</p>
 </section>
 <section id="working-in-an-r-script" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="working-in-an-r-script"><span class="header-section-number">1.3.3</span> Working in an R Script</h3>
 <p>Earlier, I asked you to open an R script in the upper left window by doing File, then New File, then R Script. Let’s go back to working in that window.</p>
 <p><strong>Set your working directory <code>setwd()</code></strong></p>
-<p>(Almost) every time you work in RStudio, the first thing you will do is set your working directory. This is a designated folder in your computer where you will save your R scripts and datasets.</p>
+<p>Many times you work in RStudio, the first thing you will do is set your working directory. This is a designated folder in your computer where you will save your R scripts and datasets.</p>
 <p>There are many ways to do this.</p>
 <ul>
 <li>An easy way is to go to Session -&gt; Set Working Directory -&gt; Choose Directory. I suggest choosing a folder in your computer that you can easily find and that you will routinely use for this class. Go ahead and create/select it.</li>
@@ -391,12 +383,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example of where my directory was</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/ktmccabe/Dropbox/GitHub2/dsps22"</code></pre>
+</div>
 </div>
 <p>If I want to change the working directory, I can go to the top toolbar of my computer and use Session -&gt; Set Working Directory -&gt; Choose Directory or just type my file pathway using the <code>setwd()</code> below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example of setting the working directory using setwd().</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Your computer will have your own file path.</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/ktmccabe/Dropbox/Rutgers Teaching/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example of setting the working directory using setwd().</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Your computer will have your own file path.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/ktmccabe/Dropbox/Rutgers Teaching/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Saving the R Script</strong></p>
 <p>Let’s now save our R script to our working directory and give it an informative name. To do so, go to File, then Save As, make sure you are in the same folder on your computer as the folder you chose for your working directory.</p>
@@ -417,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="executing-commands-in-your-r-script" class="level3" data-number="1.3.5">
 <h3 data-number="1.3.5" class="anchored" data-anchor-id="executing-commands-in-your-r-script"><span class="header-section-number">1.3.5</span> Executing Commands in your R script</h3>
-<p>The last thing we will note in this initial handout is how to execute commands in your R script.</p>
+<p>The last thing we will note in this section is how to execute commands in your R script.</p>
 <p>To run / execute a command in your R script (the upper left window), you can</p>
 <ol type="1">
 <li>Highlight the code you want to run, and then hold down “command + return” on a Mac or “control + enter” on Windows</li>
@@ -428,7 +423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/rtemplate2.png" class="img-fluid"></p>
 <p>After you executed the code, you should see it pop out in your Console:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -436,43 +431,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/runningcode.png" class="img-fluid" style="width:90.0%"></p>
 <p>Note: The symbol # also allows for annotation behind commands or on a separate line. Everything that follows # will be ignored by R. You can annotate your own code so that you and others can understand what each part of the code is designed to do.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># example of assigning an addition calculation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># example of assigning an addition calculation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="objects" class="level3" data-number="1.3.6">
 <h3 data-number="1.3.6" class="anchored" data-anchor-id="objects"><span class="header-section-number">1.3.6</span> Objects</h3>
 <p>Sometimes we will want to store our calculations as “objects” in R. We use <code>&lt;-</code> to assign objects by placing it <a href="https://www.youtube.com/watch?v=vLZA67L7gIo&amp;ab_channel=BeyonceSasha1">to the left</a> of what we want to store. For example, let’s store the calculation <code>5 + 3</code> as an object named <code>sum53</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After we execute this code, <code>sum53 now stores the calculation. This means, that if we execute a line of code that just has</code>sum53`, it will output 8. Try it:</p>
+<p>After we execute this code, <code>sum53</code> now stores the calculation. This means, that if we execute a line of code that just has <code>sum53</code>, it will output 8. Try it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
 </div>
 <p>Now we no longer have to type <code>5 + 3</code>, we can just type <code>sum53</code>. For example, let’s say we wanted to subtract 2 from this calculation. We could do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>Let’s say we wanted to divide two stored calculations:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ten <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ten <span class="sc">/</span> two</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ten <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ten <span class="sc">/</span> two</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
 <p>The information stored does not have to be numeric. For example, it can be a word, or what we would call a character string, in which case you need to use quotation marks.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="ot">&lt;-</span> <span class="st">"professor for this course"</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>mccabe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="ot">&lt;-</span> <span class="st">"professor for this course"</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>mccabe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "professor for this course"</code></pre>
 </div>
@@ -485,8 +480,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>While these are simple examples, we will use objects all the time for more complicated things to store (e.g., like full datasets!) throughout the course.</p>
 <p>We can also store an array or “vector” of information using <code>c()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>somenumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>somenumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>somenumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>somenumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 6 8 9</code></pre>
 </div>
@@ -495,18 +490,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ideally, when you are done with your R script, you should be able to highlight the entire script and execute it without generating any error messages. This means your code is clean. Code with typos in it may generate a red error message in the Console upon execution. This can happen when there are typos or commands are misused.</p>
 <p>For example, R is case sensitive. Let’s say we assigned our object like before:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, when we went to execute <code>sum53</code>, we accidentally typed <code>Sum53</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in eval(expr, envir, enclos): object 'Sum53' not found</code></pre>
 </div>
 </div>
 <p>Only certain types of objects can be used in mathematical calculations. Let’s say we tried to divide <code>mccabe</code> by 2:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in mccabe/2: non-numeric argument to binary operator</code></pre>
 </div>
@@ -514,33 +509,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A big part of learning to use R will be learning how to troubleshoot and detect typos in your code that generate error messages.</p>
 </section>
 </section>
-<section id="assignment-1" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="assignment-1"><span class="header-section-number">1.4</span> Assignment 1</h2>
-<p>Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts, as well as locate important course platforms.</p>
-<p>We will walk through this assignment together during class, but you are welcome to try to do this ahead of time on your own. You will submit, on Canvas, two documents prior to the deadline.</p>
-<ul>
-<li>An R script (.R) file with your code. Follow the best practices by titling your script and using # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.</li>
-<li>A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.
-<ul>
-<li>You may also alternatively submit a compiled RMarkdown document. We will discuss what RMarkdown is during class.</li>
-</ul></li>
-</ul>
-<p><strong><em>Assignment Exercises</em></strong></p>
-<ol type="1">
-<li>Create an R script saved as ``LastnameSetup1.R” (use your last name). Within the R script, follow the example from this handout and title the script.</li>
-<li>Set your working directory, and include the file pathway (within <code>setwd()</code>) at the top of your .R script.</li>
-<li>Do the calculation 8 + 3 - 2 in R. Store it as an object with an informative name. Report the answer.</li>
-<li>Do the calculation 5 x 3 in R. Store it as an object with an informative name. Report the answer.</li>
-<li>Add these two calculations together. Note: do this by adding together the objects you created, not the underlying raw calculations. Report the answer.</li>
-<li>Write down how you will complete your R assignments this semester. For example, if you have a personal laptop with R and RStudio on it, you will simply write “I will use my personal laptop.” If you don’t have a personal computer or laptop, please indicate where on campus or off-campus you will have regular access to a computer with R/RStudio to do your work. It is essential that you have regular access to a computer so that you will not fall behind in this course.</li>
-<li>Navigate to the course Piazza site and post a message. This can be as simple as “hello” or a reply to another person’s post. (No need to report this in your submission.)</li>
-</ol>
-</section>
-<section id="r-markdown" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">1.5</span> R Markdown</h2>
+<section id="r-markdown" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">1.4</span> R Markdown</h2>
 <p>An R Markdown document, which you can create in RStudio, allows you to weave together regular text, R code, and the output of R code in the same document. This can be very convenient when conducting data analysis because it allows you more space to explain what you are doing in each step. It can also be an effective platform for writing a report on a data analysis, similar to what you do when you write up a problem set.</p>
 <p><strong><em>Note: RMarkdown is not required for this course. It is up to you if you would like to write your problem sets in RMarkdown</em></strong></p>
-<p>R Markdown documents can be “compiled” into html, pdf, or docx documents. Below is an example of what a compiled html file looks like.</p>
+<p>R Markdown documents can be “compiled” into html, pdf, or docx documents by clicking the <code>Knit</code> button on top of the upper-left window. Below is an example of what a compiled html file looks like.</p>
 <ul>
 <li>Note that the image has both written text and a gray chunk, within which there is some R code, as well as the output of the R code (e.g., the number 8 and the image of the histogram plot)</li>
 </ul>
@@ -549,6 +522,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <p>We say this is a “compiled” RMarkdown document because it differs from the raw version of the file, which is a .Rmd file format. Below is an example of what the raw .Rmd version looks like, compared to the compiled html version.</p>
 <p><img src="images/rmarkdownraw.png" class="img-fluid" style="width:45.0%"> <img src="images/rmarkdownscreenshot.png" class="img-fluid" style="width:40.0%"></p>
+</section>
+<section id="assignment-1" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="assignment-1"><span class="header-section-number">1.5</span> Assignment 1</h2>
+<p>Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files, as well as locate important course platforms.</p>
+<p>We will start walking through this assignment together during class, but you are welcome to try to do this ahead of time on your own.</p>
+<p>You will submit, on Canvas, either</p>
+<ol type="1">
+<li>Two documents: - An R script (.R) file with your code. Follow the best practices by titling your script and using # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down. - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.</li>
+<li><strong><em>OR</em></strong> One document: - You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after “knitting” your .Rmd file. This should also have a title including your name and use text or # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.</li>
+</ol>
+<p>The assignment instructions on Canvas provide a few templates for R scripts, Rmd files, and document answers.</p>
+<p><strong><em>Assignment Exercises</em></strong></p>
+<ol type="1">
+<li>Create an R script saved as <code>LastnameSetup1.R" (use your last name) or Rmd file</code>LastnameSetup1.R”. Within this file, make sure to title it and provide your name.</li>
+<li>Set your working directory, and include the file pathway (within <code>setwd()</code>) at the top of your .R script.</li>
+<li>Do the calculation 8 + 4 - 5 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.</li>
+<li>Do the calculation 6 x 3 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.</li>
+<li>Add these two calculations together. Note: do this by adding together the objects you created, not the underlying raw calculations. Report the answer.</li>
+<li>Write down how you will complete your R assignments this semester. For example, if you have a personal laptop with R and RStudio on it, you will simply write “I will use my personal laptop.” If you don’t have a personal computer or laptop, please indicate where on campus or off-campus you will have regular access to a computer with R/RStudio to do your work. It is <strong><em>essential</em></strong> that you have regular access to a computer so that you will not fall behind in this course.</li>
+<li>Navigate to the Canvas discussion forum for Week 1 and post a message. This can be as simple as “hello” or a reply to another person’s post. (No need to report this in your submission.)</li>
+</ol>
 
 
 </section>

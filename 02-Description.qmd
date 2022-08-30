@@ -51,12 +51,8 @@ How would you summarize information in explaining it to another person? You woul
 
 For a video explainer of the code in this section, see below. The video only discusses the code. Use the notes and lecture discussion for additional context. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library("vembedr")
-library(knitr)
+{{< video src="https://www.youtube.com/watch?v=80tbdiWuljc" >}}
 
-embed_url("https://www.youtube.com/watch?v=80tbdiWuljc")
-```
 
 Univariate data refers to data coming from one "variable," where a variable captures the values of a changing characteristic.
 
@@ -73,10 +69,10 @@ We can create vectors in R by using `c()` and assigning `<-` it to an object we 
 Outcome <- c(0,0,0,0,1,1,0,1,0,1) # Use commas to separate values
 ```
 
-We can extract a particular value within our vector using brackets
+We can extract a particular value within our vector using brackets and the value's numeric position in the vector.
 
 ```{r}
-Outcome[10]
+Outcome[10] # what value is in the 10th position?
 ```
 
 We can label our outcomes using `names()`
