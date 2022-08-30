@@ -8,8 +8,8 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - 02-Description.qmd
-    - 03-CausalityI.qmd
+    #- 02-Description.qmd
+    #- 03-CausalityI.qmd
   number_sections: true
   number-depth: 4
   page-navigation: true
