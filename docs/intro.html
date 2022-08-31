@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.2" class="anchored" data-anchor-id="rsetup"><span class="header-section-number">1.2</span> Setup in R</h2>
 <p><strong>Goal</strong></p>
 <p>By the end of the first week of the course, you will want to have R and RStudio installed on your computer (both free) and feel comfortable using R as a calculator.</p>
-<p>R is an application that processes the R programming language in a statistical computing environment. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.</p>
+<p>R is an application that processes the R programming language. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.</p>
 <p>In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program. You might also encounter the Python language at some point. R and Python have similarities, and learning R can also make learning Python easier down the road.</p>
 <p><strong>R and RStudio Installation</strong></p>
 <p>This content follows and reinforces section QSS 1.3 in our book. Additional resources are also linked below.</p>
@@ -496,6 +496,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>A big part of learning to use R will be learning how to troubleshoot and detect typos in your code that generate error messages.</p>
+<p><img src="images/punctuation.png" class="img-fluid" style="width:80.0%"></p>
 </section>
 </section>
 <section id="r-markdown" class="level2" data-number="1.4">
@@ -542,17 +543,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><strong><em>Key Components.</em></strong> Now you are ready to work within the Rmd script file. We will point to four basic components of this file, and you can build your knowledge of RMarkdown from there.
 <ol type="1">
-<li>The top part bracketed by <code>---</code> on top and bottom is the YAML component. This tells RStudio the pertinent information about how to “compile” the Rmd file. Most of the time you can leave this alone, but you can always edit the title, author, or date as you wish.</li>
-<li>The next component are the global options for the document. It is conveniently labeled “setup.” By default what this is saying is that the compiled version will “echo” (i.e., display all code chunks and output) unless you specifically specify otherwise. For example, note that it says <code>include = FALSE</code> for the setup chunk. That setting means that this code chunk will “run” but it will not appear in the nicely compiled .html file. Most of the time you will not need to edit those settings.</li>
+<li>The top part bracketed by <code>---</code> on top and bottom is the YAML component. This tells RStudio the pertinent information about how to “compile” the Rmd file.
+<ul>
+<li>Most of the time you can leave this alone, but you can always edit the title, author, or date as you wish.</li>
+</ul></li>
+<li>The next component are the global options for the document. It is conveniently labeled “setup.” By default what this is saying is that the compiled version will “echo” (i.e., display all code chunks and output) unless you specifically specify otherwise. For example, note that it says <code>include = FALSE</code> for the setup chunk. That setting means that this code chunk will “run” but it will not appear in the nicely compiled .html file.
+<ul>
+<li>Most of the time you will not need to edit those settings.</li>
+</ul></li>
 <li>The third component I want to bring attention to is the body text. The # symbol in RMarkdown is used to indicate that you have a new section of the document. For example, in the compiled images at the beginning, this resulted in the text being larger and bolded when it said “Problem 2.” In addition to just using a single #, using ## or ### can indicate subsections or subsubsections. Other than that symbol, you can generally write text just as you would in any word processing program, with some exceptions, such as how to make text bold or italicized.</li>
 <li>The final component I want to call attention to are the other main body code chunks. These are specific parts of the document where you want to create a mini R script. To create these, you can simply click the + C symbol toward the top of the top left window of RStudio and indicate you want an R chunk.</li>
 </ol>
 <center>
 <img src="images/rmarkdownnewchunk.png" class="img-fluid" style="width:20.0%">
-</center>
-<ul>
-<li>For example, in the image above, there is an R code chunk labeled <code>cars</code>. The <code>cars</code> component is just a label for the code chunk. Labeling code chunks is not necessary. By default, a new R code chunk will just have <code>r</code> in the brackets, and that is sufficient.</li>
-</ul></li>
+</center></li>
 <li><strong><em>Writing R Code.</em></strong> Within a code chunk, you can type R code just like you would in any R script, as explained in the previous section. However, in RMarkdown, you also have the option of running an entire code chunk at once by hitting the green triangle at the top-right of a given code chunk.</li>
 </ol>
 <p><img src="images/codechunkexample.png" class="img-fluid" style="width:70.0%"></p>
@@ -568,12 +572,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="assignment-1" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="assignment-1"><span class="header-section-number">1.5</span> Assignment 1</h2>
-<p>Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files, as well as locate important course platforms.</p>
+<p>Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files.</p>
 <p>We will start walking through this assignment together during class, but you are welcome to try to do this ahead of time on your own.</p>
 <p>You will submit, on Canvas, either</p>
 <ol type="1">
-<li>Two documents: - An R script (.R) file with your code. Follow the best practices by titling your script and using # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down. - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.</li>
-<li><strong><em>OR</em></strong> One document: - You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after “knitting” your .Rmd file. This should also have a title including your name and use text or # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.</li>
+<li><p>Two documents:</p>
+<ul>
+<li>An R script (.R) file with your code. Follow the best practices by titling your script and using # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.</li>
+<li>A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.</li>
+</ul></li>
+<li><p><strong><em>OR</em></strong> One document:</p>
+<ul>
+<li>You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after “knitting” your .Rmd file. This should also have a title including your name and use text or # comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.</li>
+</ul></li>
 </ol>
 <p>The assignment instructions on Canvas provide a few templates for R scripts, Rmd files, and document answers.</p>
 <p><strong><em>Assignment Exercises</em></strong></p>

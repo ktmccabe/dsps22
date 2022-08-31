@@ -82,14 +82,14 @@ Even if you do not plan on becoming a social scientist or a data scientist, an i
 
 By the end of the first week of the course, you will want to have R and RStudio installed on your computer (both free) and feel comfortable using R as a calculator.
 
-R is an application that processes the R programming language in a statistical computing environment. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.   
+R is an application that processes the R programming language. RStudio is also an application, which serves as a user interface that makes working in R easier. We will primarily open and use RStudio to work with R.   
 
 In other classes, you may come across Stata, SPSS, Excel, or SAS, which are programs that also conduct data analysis. R has the advantage of being free and open-source. Even after you leave the university setting, you will be able to use R/RStudio for free. As an open-source program, it is very flexible, and a community of active R/RStudio users is constantly adding to and improving the program. You might also encounter the Python language at some point. R and Python have similarities, and learning R can also make learning Python easier down the road.   
 
 
 **R and RStudio Installation**
 
-This content follows and reinforces section QSS 1.3 in our book. Additional resources are also linked below.
+This content follows and reinforces section QSS 1.3 in our book. Additional resources are also linked below. 
 
   - This [video](http://www.youtube.com/embed/ulIv0NiVTs4?rel=0) from Professor Christopher Bail explains why many social scientists use R and describes the R and RStudio installation process. This involves
     1. Going to [cran](https://cran.r-project.org/), select the link that matches your operating system, and
@@ -306,6 +306,7 @@ mccabe / 2
 
 A big part of learning to use R will be learning how to troubleshoot and detect typos in your code that generate error messages.
 
+![](images/punctuation.png){width=80%}
 
 ## R Markdown
 
@@ -352,14 +353,16 @@ Once you have those installed, now, each time you want to create an RMarkdown do
   4. ***Save as .Rmd file.*** Save the file by going to "File -> Save as" in RStudio
       - Give the file an informative name like your LastnamePractice1.Rmd
   5. ***Key Components.*** Now you are ready to work within the Rmd script file. We will point to four basic components of this file, and you can build your knowledge of RMarkdown from there.
-      1. The top part bracketed by `---` on top and bottom is the YAML component. This tells RStudio the pertinent information about how to "compile" the Rmd file. Most of the time you can leave this alone, but you can always edit the title, author, or date as you wish.
-      2. The next component are the global options for the document. It is conveniently labeled "setup." By default what this is saying is that the compiled version will "echo" (i.e., display all code chunks and output) unless you specifically specify otherwise. For example, note that it says `include = FALSE` for the setup chunk. That setting means that this code chunk will "run" but it will not appear in the nicely compiled .html file. Most of the time you will not need to edit those settings.
+      1. The top part bracketed by `---` on top and bottom is the YAML component. This tells RStudio the pertinent information about how to "compile" the Rmd file.
+          - Most of the time you can leave this alone, but you can always edit the title, author, or date as you wish.
+      2. The next component are the global options for the document. It is conveniently labeled "setup." By default what this is saying is that the compiled version will "echo" (i.e., display all code chunks and output) unless you specifically specify otherwise. For example, note that it says `include = FALSE` for the setup chunk. That setting means that this code chunk will "run" but it will not appear in the nicely compiled .html file. 
+          - Most of the time you will not need to edit those settings.
       3. The third component I want to bring attention to is the body text. The \# symbol in RMarkdown is used to indicate that you have a new section of the document. For example, in the compiled images at the beginning, this resulted in the text being larger and bolded when it said "Problem 2." In addition to just using a single \#, using \#\# or \#\#\# can indicate subsections or subsubsections. Other than that symbol, you can generally write text just as you would in any word processing program, with some exceptions, such as how to make text bold or italicized. 
       4. The final component I want to call attention to are the other main body code chunks. These are specific parts of the document where you want to create a mini R script. To create these, you can simply click the + C symbol toward the top of the top left window of RStudio and indicate you want an R chunk.
       
       <center>
 ![](images/rmarkdownnewchunk.png){width=20%}</center>
-        - For example, in the image above, there is an R code chunk labeled `cars`. The `cars` component is just a label for the code chunk. Labeling code chunks is not necessary. By default, a new R code chunk will just have `r` in the brackets, and that is sufficient.
+
     
   6. ***Writing R Code.*** Within a code chunk, you can type R code just like you would in any R script, as explained in the previous section. However, in RMarkdown, you also have the option of running an entire code chunk at once by hitting the green triangle at the top-right of a given code chunk.
     
@@ -375,17 +378,19 @@ Once you have those installed, now, each time you want to create an RMarkdown do
 
 ## Assignment 1 
 
-Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files, as well as locate important course platforms.
+Below is an exercise that will demonstrate you are able to use R as a calculator and create R scripts or Rmarkdown files.
 
 We will start walking through this assignment together during class, but you are welcome to try to do this ahead of time on your own. 
 
 You will submit, on Canvas, either 
 
   1. Two documents:
-    - An R script (.R) file with your code. Follow the best practices by titling your script and using \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.
-    - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.
+    
+      - An R script (.R) file with your code. Follow the best practices by titling your script and using \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down.
+      - A Word document / Google Docs document or pdf with answers to the written questions (Problems 3-6 below). This document should also have a title with your name on it.
   2. ***OR*** One document:
-    - You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after "knitting" your .Rmd file. This should also have a title including your name and use text or \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down. 
+    
+      - You may also alternatively submit a compiled RMarkdown document (e.g., a .html, .docx file) that you get after "knitting" your .Rmd file. This should also have a title including your name and use text or \# comments to explain your steps. This code should be clean. I should be able to run your code to verify that the code produces the answers you write down. 
 
 The assignment instructions on Canvas provide a few templates for R scripts, Rmd files, and document answers.
 
