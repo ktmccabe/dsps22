@@ -330,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="using-r-as-a-calculator" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="using-r-as-a-calculator"><span class="header-section-number">1.3.2</span> Using R as a Calculator</h3>
 <p>The <em>bottom left</em> window in your RStudio is the Console. You can type in this window to use R as a calculator or to try out commands. It will show the raw output of any commands you type. For example, we can try to use R as a calculator. Type the following in the Console (the bottom left window) and hit “enter” or “return” on your keyboard:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-1_c5a9e290a44fc5118856fd663c180c31">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Note: when you selected your directory, code came out in the bottom left Console window. This is the <code>setwd()</code> command which can also be used directly to set your working directory in the future.</li>
 <li>If you aren’t sure where your directory has been set, you can also type <code>getwd()</code> in your Console. Try it now</li>
 </ul>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-2_d7c748946f4435dda3080cc5dd106b92">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example of where my directory was</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -377,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>If I want to change the working directory, I can go to the top toolbar of my computer and use Session -&gt; Set Working Directory -&gt; Choose Directory or just type my file pathway using the <code>setwd()</code> below:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-3_8018407f5e5604dcdb3ba71681ff9a5c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example of setting the working directory using setwd().</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Your computer will have your own file path.</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/ktmccabe/Dropbox/Rutgers Teaching/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -411,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Try it: Type <code>5 + 3</code> in the R script. Then, try to execute <code>5 + 3</code>. It should look something like this:</p>
 <p><img src="images/rtemplate2.png" class="img-fluid"></p>
 <p>After you executed the code, you should see it pop out in your Console:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-4_d4774f9802a5389d314f58fad0a6dadc">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
@@ -419,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><img src="images/runningcode.png" class="img-fluid" style="width:90.0%"></p>
 <p>Note: The symbol # also allows for annotation behind commands or on a separate line. Everything that follows # will be ignored by R. You can annotate your own code so that you and others can understand what each part of the code is designed to do.</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-5_ab9ab92907bb68b4fd54fad75ddcf673">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># example of assigning an addition calculation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -427,25 +427,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="objects" class="level3" data-number="1.3.6">
 <h3 data-number="1.3.6" class="anchored" data-anchor-id="objects"><span class="header-section-number">1.3.6</span> Objects</h3>
 <p>Sometimes we will want to store our calculations as “objects” in R. We use <code>&lt;-</code> to assign objects by placing it <a href="https://www.youtube.com/watch?v=vLZA67L7gIo&amp;ab_channel=BeyonceSasha1">to the left</a> of what we want to store. For example, let’s store the calculation <code>5 + 3</code> as an object named <code>sum53</code>:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-6_4ad89a553da3b6df756532ed3e1466a4">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After we execute this code, <code>sum53</code> now stores the calculation. This means, that if we execute a line of code that just has <code>sum53</code>, it will output 8. Try it:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-7_fc1af1e8cace475df3e5522840f0d683">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
 </div>
 <p>Now we no longer have to type <code>5 + 3</code>, we can just type <code>sum53</code>. For example, let’s say we wanted to subtract 2 from this calculation. We could do:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-8_ce6feae6673364add59731fc4930fb20">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>Let’s say we wanted to divide two stored calculations:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-9_9ab361a41f81bfcf4126b5041811b3cf">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ten <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ten <span class="sc">/</span> two</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -454,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The information stored does not have to be numeric. For example, it can be a word, or what we would call a character string, in which case you need to use quotation marks.</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-10_b03c6383d7b2815961be983c71263697">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="ot">&lt;-</span> <span class="st">"professor for this course"</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>mccabe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -468,7 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>While these are simple examples, we will use objects all the time for more complicated things to store (e.g., like full datasets!) throughout the course.</p>
 <p>We can also store an array or “vector” of information using <code>c()</code></p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-11_f8a1c3c3b1c9ea9a6a48b8e41cc71a27">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>somenumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>somenumbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -478,18 +478,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Importance of Clean Code</strong></p>
 <p>Ideally, when you are done with your R script, you should be able to highlight the entire script and execute it without generating any error messages. This means your code is clean. Code with typos in it may generate a red error message in the Console upon execution. This can happen when there are typos or commands are misused.</p>
 <p>For example, R is case sensitive. Let’s say we assigned our object like before:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-12_272a1276d9763e1c3e7c529f02cf8033">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sum53 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, when we went to execute <code>sum53</code>, we accidentally typed <code>Sum53</code>:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-13_8f0d6cb6cb5ff842590b6e8d20addf94">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Sum53</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in eval(expr, envir, enclos): object 'Sum53' not found</code></pre>
 </div>
 </div>
 <p>Only certain types of objects can be used in mathematical calculations. Let’s say we tried to divide <code>mccabe</code> by 2:</p>
-<div class="cell" data-hash="intro_cache/html/unnamed-chunk-14_ad02923b43ef40920c0251b436d3cca8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mccabe <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in mccabe/2: non-numeric argument to binary operator</code></pre>
@@ -511,6 +511,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </center>
 <p>We say this is a “compiled” RMarkdown document because it differs from the raw version of the file, which is a .Rmd file format. Below is an example of what the raw .Rmd version looks like, compared to the compiled html version.</p>
 <p><img src="images/rmarkdownraw.png" class="img-fluid" style="width:45.0%"> <img src="images/rmarkdownscreenshot.png" class="img-fluid" style="width:40.0%"></p>
+<p>Just like with a regular R script, to work in RMarkdown, you will open up RStudio.</p>
+<p>The <strong>first time</strong> you will be working in RMarkdown, you will want to install two packages: <code>rmarkdown</code> and <code>knitr</code>. You can do this in the Console window in RStudio.</p>
+<p>Type the following into the Console window and hit enter/return.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you have those installed, now, each time you want to create an RMarkdown document, you will open up a .Rmd R Markdown file and get to work.</p>
+<ol type="1">
+<li>Go to File -&gt; New File -&gt; R Markdown in RStudio
+<ul>
+<li>Alternatively, you can click the green + symbol at the top left of your RStudio window</li>
+</ul></li>
+<li>This should open up a window with several options, similar to the image below
+<ul>
+<li>Create an informative title and change the author name to match your own</li>
+<li>For now, we will keep the file type as html. In the future, you can create pdf or .doc documents. However, these require additional programs installed on your computer.</li>
+</ul></li>
+</ol>
+<p><img src="images/rmarkdownnewfile.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>After you hit “OK” a new .Rmd script file will open in your top-left window with some template language and code chunks, similar to the image below.</li>
+</ol>
+<p><img src="images/rmarkdowntemplate.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li><strong><em>Save as .Rmd file.</em></strong> Save the file by going to “File -&gt; Save as” in RStudio
+<ul>
+<li>Give the file an informative name like your LastnamePractice1.Rmd</li>
+</ul></li>
+<li><strong><em>Key Components.</em></strong> Now you are ready to work within the Rmd script file. We will point to four basic components of this file, and you can build your knowledge of RMarkdown from there.
+<ol type="1">
+<li>The top part bracketed by <code>---</code> on top and bottom is the YAML component. This tells RStudio the pertinent information about how to “compile” the Rmd file. Most of the time you can leave this alone, but you can always edit the title, author, or date as you wish.</li>
+<li>The next component are the global options for the document. It is conveniently labeled “setup.” By default what this is saying is that the compiled version will “echo” (i.e., display all code chunks and output) unless you specifically specify otherwise. For example, note that it says <code>include = FALSE</code> for the setup chunk. That setting means that this code chunk will “run” but it will not appear in the nicely compiled .html file. Most of the time you will not need to edit those settings.</li>
+<li>The third component I want to bring attention to is the body text. The # symbol in RMarkdown is used to indicate that you have a new section of the document. For example, in the compiled images at the beginning, this resulted in the text being larger and bolded when it said “Problem 2.” In addition to just using a single #, using ## or ### can indicate subsections or subsubsections. Other than that symbol, you can generally write text just as you would in any word processing program, with some exceptions, such as how to make text bold or italicized.</li>
+<li>The final component I want to call attention to are the other main body code chunks. These are specific parts of the document where you want to create a mini R script. To create these, you can simply click the + C symbol toward the top of the top left window of RStudio and indicate you want an R chunk.</li>
+</ol>
+<center>
+<img src="images/rmarkdownnewchunk.png" class="img-fluid" style="width:20.0%">
+</center>
+<ul>
+<li>For example, in the image above, there is an R code chunk labeled <code>cars</code>. The <code>cars</code> component is just a label for the code chunk. Labeling code chunks is not necessary. By default, a new R code chunk will just have <code>r</code> in the brackets, and that is sufficient.</li>
+</ul></li>
+<li><strong><em>Writing R Code.</em></strong> Within a code chunk, you can type R code just like you would in any R script, as explained in the previous section. However, in RMarkdown, you also have the option of running an entire code chunk at once by hitting the green triangle at the top-right of a given code chunk.</li>
+</ol>
+<p><img src="images/codechunkexample.png" class="img-fluid" style="width:70.0%"></p>
+<ol start="7" type="1">
+<li><strong><em>Knitting the document.</em></strong> Once you have added a code chunk and/or some text, you are ready to compile or “Knit” the document. This is what generates the .html document.
+<ul>
+<li>To do so, click on the Knit button toward the top of the top-left window of Rstudio. After a few moments, this should open up a preview window displaying the compiled html file.</li>
+<li>It will also save an actual .html file in your working directory (the same location on your computer where you have saved the .Rmd file)</li>
+<li>Try to locate this compiled .html file on your computer and open it. For most computers, .html files will open in your default web browser, such as Google Chrome or Safari.</li>
+<li>This step is a common place where errors are detected and generated. Sometimes the compiling process fails due to errors in the R code in your code chunks or an error in the Markdown syntax. If your document fails to knit, the next step is to try to troubleshoot the error messages the compiling process generates. The best way to reduce and more easily detect errors is to “knit as you go.” Try to knit your document after each chunk of code you create.</li>
+</ul></li>
+</ol>
 </section>
 <section id="assignment-1" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="assignment-1"><span class="header-section-number">1.5</span> Assignment 1</h2>
@@ -524,13 +578,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The assignment instructions on Canvas provide a few templates for R scripts, Rmd files, and document answers.</p>
 <p><strong><em>Assignment Exercises</em></strong></p>
 <ol type="1">
-<li>Create an R script saved as <code>LastnameSetup1.R" (use your last name) or Rmd file</code>LastnameSetup1.R”. Within this file, make sure to title it and provide your name.</li>
+<li>Create an R script saved as “LastnameSetup1.R” (use your last name) or Rmd file “LastnameSetup1.Rmd”. Within this file, make sure to title it and provide your name.</li>
 <li>Set your working directory, and include the file pathway (within <code>setwd()</code>) at the top of your .R script.</li>
 <li>Do the calculation 8 + 4 - 5 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.</li>
 <li>Do the calculation 6 x 3 in your R script or Rmd file. Store it as an object with an informative name. Report the answer.</li>
 <li>Add these two calculations together. Note: do this by adding together the objects you created, not the underlying raw calculations. Report the answer.</li>
 <li>Write down how you will complete your R assignments this semester. For example, if you have a personal laptop with R and RStudio on it, you will simply write “I will use my personal laptop.” If you don’t have a personal computer or laptop, please indicate where on campus or off-campus you will have regular access to a computer with R/RStudio to do your work. It is <strong><em>essential</em></strong> that you have regular access to a computer so that you will not fall behind in this course.</li>
-<li>Navigate to the Canvas discussion forum for Week 1 and post a message. This can be as simple as “hello” or a reply to another person’s post. (No need to report this in your submission.)</li>
 </ol>
 
 
