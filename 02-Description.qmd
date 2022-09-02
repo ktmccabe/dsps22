@@ -172,9 +172,9 @@ Returning to our example, we found that 40% of people surveyed thought the econo
     -   Across time: Survey people across multiple years
     -   Across type of people: Survey different partisan groups
 
-These types of survey trends are often used by news organizations and public opinion organizations like, Gallup.
+These types of rends are often used by news organizations and public opinion organizations like, Gallup.
 
-![](images/economyconf.png){width="70%"}
+![](images/gallupec.png){width="70%"}
 
 This was just a first example of description in political science. There are many other ways to describe how the economy is doing and many other topics we might want to describe in politics.
 
@@ -200,12 +200,8 @@ In this dataset, each row is an election year. Each column contains information 
 
 For a video explainer of the code in this section, see below. The video only discusses the code. Use the notes and lecture discussion for additional context. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library("vembedr")
-library(knitr)
+{{< video src="https://www.youtube.com/watch?v=rm_g0rrglEQ" >}}
 
-embed_url("https://www.youtube.com/watch?v=rm_g0rrglEQ")
-```
 
 Often the variables we care about are stored inside of rectangular datasets
 
@@ -464,7 +460,53 @@ mean(turnout$newVEPturnout[seq(2, 12, 2)])
 
 Not a big deal now, but imagine if you had to write 100 numbers or 1 MILLION NUMBERS!
 
+
+## Creating dataframes from within R
+
+While importing data from outside of R is the most common way to work with dataframes in R, you can also create dataframes from inside R. Ultimately, a dataframe just binds together multiple vectors / columns to create a rectangular object.
+
+For example, let's say we want to create a dataframe with columns indicating just the midterm years and their VEP turnout. These correspond to the two vectors:
+
+  - `turnout$newVEPturnout[seq(2, 12, 2)]`
+  - `turnout$year[seq(2, 12, 2)]`
+  
+In R, you can create a rectangular `data.frame` object with the `data.frame` function.
+
+  - Within this function, you can make several entries that follow the syntax `colname = values`. We supply what we would like the name of the column to be, such as `midyear`, and then provide R with a set of values. We can then provide a comma and add more columns. 
+      + You just want to make sure each column has the same number of values.
+
+```{r}
+midtermdata <- data.frame(midyear = turnout$year[seq(2, 12, 2)], 
+                          VEPturnout = turnout$newVEPturnout[seq(2, 12, 2)])
+```
+
+You can supply the values for each column using objects or just vectors of raw numeric values like the below:
+
+```{r}
+midtermdata <- data.frame(midyear = c(1982, 1986, 1990, 1994, 1998, 2002), 
+                          VEPturnout = c(42.13701, 38.14115, 38.41895, 41.12625, 38.09316, 39.51064))
+```
+
+The result is a nice rectangular dataframe similar to what we loaded using the `turnout.csv` dataset from outside of R. 
+
+```{r}
+midtermdata
+```
+
+Now, because our dataframe has a different name. If we want to access columns from this dataframe, we start with `midterm$` followed by the variable name.
+
+```{r}
+midtermdata$midyear
+```
+
+
+## Wrapping Up
+
 In this section, we have described voter turnout using multiple measures and types of elections. There are several other questions that political scientists may be interested in when it comes to voter turnout.
 
-For example, Texas and more than a dozen other states have passed new laws that change voting procedures in elections. What effect will these have on voter turnout? In the next section, we start to examine how to evaluate causal claims.
+For example, during and following the 2020 elections, many states passed laws that changed election procedures: Ability to vote by mail, Ballot dropboxes, Length of early voting. What else? 
+
+  - What effect (if any) do these laws have on voter turnout? 
+  
+In the next section, we start to examine how to evaluate causal claims.
 
