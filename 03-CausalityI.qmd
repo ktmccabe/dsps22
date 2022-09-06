@@ -30,29 +30,32 @@ Causal Question: Does the manipulation of one factor (the treatment), (holding e
 
 When studying causal relationships, we distinguish two concepts:
 
--   treatment: variable whose change may produce a change in the outcome
--   outcome ($Y$): what may change as a result
+  - treatment: variable whose change may produce a change in the outcome
+  - outcome ($Y$): what may change as a result
 
 We imagine two states of the world or "potential outcomes."
 
--   $Y(1)$: the outcome if the treatment is administered
--   $Y(0)$: the outcome if the treatment is NOT administered (or maybe something else is)
+  - $Y(1)$: the outcome if the treatment is administered
+  - $Y(0)$: the outcome if the treatment is NOT administered (or maybe something else is)
 
 Example: How does voter turnout ($Y$) change as a result of varying whether someone receives a mail-in ballot (the treatment)?
 
--   $Y(\text{sent a mail-in ballot})$: do you vote or not
--   $Y(\text{not sent a mail-in ballot})$: do you vote or not
+  - $Y(\text{sent a mail-in ballot})$: do you vote or not
+  - $Y(\text{not sent a mail-in ballot})$: do you vote or not
 
 We compare your likelihood of turning out to vote in a world where you did receive a mail-in ballot vs. a counterfactual state of the world in which you did not receive a mail-in ballot, generally assuming that this is the only thing that is different between these two potential states of the world.
 
-In many cases in social science, we might start by observing some connection in the real world (a factual observation). To make a causal claim, we then have to imagine what that counterfactual state of the world would be. Examples:
+In many cases in social science, we might start by observing some connection in the real world. To make a causal claim, we then have to imagine what that counterfactual state of the world would be. Examples:
 
--   Causal Question: Does the minimum wage increase the unemployment rate?
-    -   (Hypothetical) Factual: An unemployment rate went up after the minimum wage increased
-    -   Implied Counterfactual: Would the unemployment rate have gone up, had the minimum wage increase not occurred?
--   Causal Question: Does race affect one's job prospects?
-    -   (Hypothetical) Factual: Jamal applied for a job but did not get it
-    -   Implied Counterfactual: Would Jamal have gotten a job if he were white?
+Causal Question: Does the minimum wage increase the unemployment rate?
+  
+  - (Hypothetical) Factual: An unemployment rate went up after the minimum wage increased
+  - Implied Counterfactual: Would the unemployment rate have gone up, had the minimum wage increase not occurred?
+
+Causal Question: Does the gender of a political messenger influence the persuasiveness of the message?
+
+  - (Hypothetical) Factual: Suppose a political messenger perceived as a man had a somewhat persuasive effect delivering a message on abortion.
+  - Implied Counterfactual: Would a political messenger perceived as a woman have a similar or different persuasive effect?
 
 We use causal logic all of the time outside of social science.
 
@@ -79,10 +82,12 @@ What other causal questions might social scientists or data scientists ask?
 
 When we are conducting a causal analysis, we will want to estimate a causal effect.
 
+  - Causal effects are all about ideal comparisons between treated vs. untreated
+
 A causal effect is the change in the outcome Y that is caused by a change in the treatment variable.
 
--   $Y(1) - Y(0)$ = causal effect or "treatment effect"
-    -   e.g., Donation if contacted - Donation if not contacted
+  -   $Y(1) - Y(0)$ = causal effect or "treatment effect"
+  -   e.g., Donation if contacted - Donation if not contacted
 
 We often want to know the **average treatment effect** in some population, not just the causal effect for a single individual. Here, we might ask, on average, how much would our outcome change if our units were treated instead of untreated. To do so, we simply sum up all of the causal effects and divide them by the number of units in our population.
 
@@ -95,8 +100,8 @@ The problem: Fundamental Problem of Causal Inference
 
 What makes the evaluation of causal claims difficult, is that in the real world, we suffer from the fundamental problem of causal inference:
 
--   For any individual, we only get to see (observe) the result from one state of the world
-    -   This makes that subtraction of potential outcomes impossible.
+  - For any individual, we only get to see (observe) the result from one state of the world
+      + This makes that subtraction of potential outcomes impossible.
 
 (Unless we are in [Groundhog Day](https://www.youtube.com/watch?v=5E0M6Rh9qpg) or *Russian Doll*)
 
@@ -104,24 +109,33 @@ What makes the evaluation of causal claims difficult, is that in the real world,
 
 One approach for addressing the fundamental problem of causal inference is to simulate two potential states of the world through random assignment: Randomized Controlled Trials / Experiments
 
-Experiments approximate factual vs. counterfactual comparison
+Experiments approximate an ideal factual vs. counterfactual comparison
 
--   We randomly assign one group to receive a "treatment" and another not to receive a treatment (the control)
--   When treatment assignment is **randomized**, the only thing that distinguishes the treatment group from the control group, besides the treatment itself, is chance.
+  - We randomly assign one group to receive a "treatment" and another not to receive a treatment (the control)
+      + There can be more than two groups. The key is that each group varies (is manipulated) in some way.
+  - When treatment assignment is **randomized**, the only thing that distinguishes the treatment group from the control group, besides the treatment itself, is chance.
+
+
+![Salganik Bit by Bit Chapter 4.4](images/betweensub.png)
 
 This allows us to compare the average outcomes between groups in order to estimate our causal effects (more on this below).
 
+
+
 ### Experiments: Why Randomize?
 
-Randomization is essential for being able to "identify" and isolate the causal effect of the treatment on the outcome. Without randomization, there may be several reasons why two groups differ beyond the treatment of interest.
+Randomization is essential for being able to *identify* and *isolate* the causal effect of the treatment on the outcome. 
 
-For example, if we randomly assigned half of Rutgers seniors to watch the movie *Groundhog Day* and half to watch *Parasite* we would expect the groups to have about equal proportions of female students, average age, racial composition, majors, etc.
+Without randomization, there may be several reasons why two groups differ beyond the treatment of interest.
 
--   (If we didn't randomly assign, and just let people "select" into watching a particular movie, the groups could look very different.)
+  - For example, if we randomly assigned half of Rutgers seniors to watch the movie *Top Gun Maverick* and half to watch *Minions: The Rise of Gru* we would expect the groups to have about equal proportions of female students, average age, racial composition, majors, etc.
+      + (If we didn't randomly assign, and just let people "select" into watching a particular movie, the groups could look very different.)
 
 But because we randomized assignment, on average, we'd expect the two groups to be identical except for the treatment-- in this case, which movie they watched.
 
--   Great news! This means any differences in the outcomes between the two groups can be attributed to the treatment. So if we wanted to see if *Parasite* leads people to have nightmares about people living in their basements, we could compare the average number of reported nightmares between the seniors that watched *Parasite* vs. *Groundhog Day*
+  - Great news! This means any differences in the outcomes between the two groups can be attributed to the treatment. So if we wanted to see if *Top Gun Maverick* leads people to take up flying lessons, we could compare the average number of flying lessons among seniors who watched *Top Gun Maverick* compared to those who didn't, and instead watched a different movie.
+
+
 
 ### Experiments: How to Analyze
 
@@ -145,7 +159,7 @@ For every experiment, you should be able to
 -   Describe how the experiment will be implemented (e.g., recruitment of subjects)
 -   Identify and describe the randomization into treatment group(s) and control group and what happens in each group
 -   Identify the outcome of interest, how it is measured
--   Evaluate the relevant comparison
+-   Evaluate the relevant comparison (between two different experimental conditions)
 
 We will turn to an example in the next section.
 
@@ -164,12 +178,9 @@ Marianne Bertrand and Sendhil Mullainathan. 2004. "Are Emily and Greg more emplo
 
 *For a video explainer of the code in this section, see below. The video only discusses the code. Use the notes and lecture discussion for additional context. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)*
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library("vembedr")
-library(knitr)
 
-embed_url("https://www.youtube.com/watch?v=LeJkRydMruM")
-```
+{{< video src="https://www.youtube.com/watch?v=LeJkRydMruM" >}}
+
 
 Let's load the data. Note: When we have variables that are text-based categories, we may want to tell R to treat these "strings" of text information as factor variables, a particular type of variable that represents data as a set of nominal (unordered) or ordinal (ordered) categories. We do this with the `stringsAsFactors` argument.
 
@@ -439,3 +450,36 @@ Experiments can vary:
         -   Outcome: Is the outcome something we care about in the real world? Are we measuring it in a realistic, accurate way?
 
 Review [*Bit by Bit*](https://www.bitbybitbook.com/en/1st-ed/running-experiments/) chapter 4 for more examples of social science experiments.
+
+
+***Example: Televised Incivility, Trust and Emotions (Mutz and Reeves)***
+
+
+![](images/arousal.png){width="50%"}
+
+Participants sat alone in a room with electrodes attached to their hands to measure skin conductance. Subjects viewed 20 minutes of a political debate created for the experiment, which varied in civility and politeness. Results showed respondents had more of an emotional response to the uncivil condition and expressed less trust in politicians.
+
+***Example: Online Survey Experiment***
+
+*Audience Costs* (Tomz)
+
+
+A country sent its military to take over a neighboring country. The attacking country was led by a [dictator, who invaded ***OR*** democratically elected government, which invaded] [to get more power and resources ***OR*** because of a longstanding historical feud. 
+
+The attacking country had a [strong military, so it would ***OR*** weak military, so it would not] have taken a major effort for the United States to help push them out. 
+
+A victory by the attacking country would [hurt ***OR*** not affect] the safety and economy of the United States.
+
+  - Participants provided a different version of the vignette above, and a reaction by the president
+  - Presidential approval varies depending on the president's response and the nature of the situation
+
+
+***Example: Digital Field Experiments in Campaigns***
+
+Example: A/B Testing in Campaigns
+
+![](images/whichsubject.png)
+
+Emails are virtually costless. Very easy to ask: Are people more likely to open them with X subject or Y subject or Z subject?
+
+
