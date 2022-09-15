@@ -202,7 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#r-shortcut-for-writing-vectors" id="toc-r-shortcut-for-writing-vectors" class="nav-link" data-scroll-target="#r-shortcut-for-writing-vectors"> <span class="header-section-number">2.6.1</span> R shortcut for writing vectors</a></li>
   </ul></li>
   <li><a href="#creating-dataframes-from-within-r" id="toc-creating-dataframes-from-within-r" class="nav-link" data-scroll-target="#creating-dataframes-from-within-r"> <span class="header-section-number">2.7</span> Creating dataframes from within R</a></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up"> <span class="header-section-number">2.8</span> Wrapping Up</a></li>
+  <li><a href="#wrapping-up-description" id="toc-wrapping-up-description" class="nav-link" data-scroll-target="#wrapping-up-description"> <span class="header-section-number">2.8</span> Wrapping Up Description</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-r-tools" id="toc-summary-of-r-tools" class="nav-link" data-scroll-target="#summary-of-r-tools"> <span class="header-section-number">2.8.1</span> Summary of R tools</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -795,16 +798,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="wrapping-up" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="wrapping-up"><span class="header-section-number">2.8</span> Wrapping Up</h2>
+<section id="wrapping-up-description" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="wrapping-up-description"><span class="header-section-number">2.8</span> Wrapping Up Description</h2>
 <p>In this section, we have described voter turnout using multiple measures and types of elections. There are several other questions that political scientists may be interested in when it comes to voter turnout.</p>
 <p>For example, during and following the 2020 elections, many states passed laws that changed election procedures: Ability to vote by mail, Ballot dropboxes, Length of early voting. What else?</p>
 <ul>
 <li>What effect (if any) do these laws have on voter turnout?</li>
 </ul>
 <p>In the next section, we start to examine how to evaluate causal claims.</p>
+<section id="summary-of-r-tools" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="summary-of-r-tools"><span class="header-section-number">2.8.1</span> Summary of R tools</h3>
+<p>We have touched on a number of R tools thus far. Here is a summary of some of the key items to remember going forward:</p>
+<ul>
+<li><code>setwd()</code>: sets the working directory in R, which tells R which folder on your computer contains the datasets or other R files where you will be working. You should get into the habit of setting your working directory each time you work in RStudio.
+<ul>
+<li>Can set this in the toolbar Session -&gt; Set Working Directory -&gt; Choose Directory, followed by clicking the “Open” button on the folder where you want to work.</li>
+<li>Example: <code>setwd("~/Downloads/Data Science")</code></li>
+</ul></li>
+<li><code>##</code>: Hashtags are used to help annotate your code. Anything behind a hashtag is treated as plain text</li>
+<li><code>+ - * /</code>: These are some of the mathematical operators you can use in R
+<ul>
+<li>You can also control which operations are performed first using <code>()</code> just like you would do with math outside of R. For example, try to compare the answer to <code>6 + 4 * 3</code> with <code>(6 + 4) * 3</code></li>
+</ul></li>
+<li><code>&lt;-</code>: This is an assignment tool that allows us to store calculations, vectors, datasets, and more as <em>objects</em> in R.
+<ul>
+<li>Example: <code>sum53 &lt;- 5 + 3</code> creates an object called <code>sum53</code> that stores the calculation on the right.</li>
+</ul></li>
+<li><code>[]</code>: Brackets are used to extract specific components of objects we create. The number(s) inside the brackets tell us which entries to extract.
+<ul>
+<li>Example: <code>Outcome[2]</code> will tell us to extract the second entry in the object <code>Outcome</code></li>
+<li>Note: when we use datasets, the brackets will have two entries, one corresponding to the row entry and one corresponding to the column. Example <code>turnout[1,2]</code> means the entry in the first row and second column.</li>
+</ul></li>
+</ul>
+<p><em>Functions</em> We have already started using a number of <em>functions</em> in R, which are operations we ask R to do for us, such as creating vectors, importing data, or summarizing data by finding the mean, range, etc. Functions come in the same format, which starts with the function name followed by parentheses. Example: <code>mean()</code>. Each function then takes a particular input(s). When you “run” a line of code with a function, R applies the function to the input.</p>
+<ul>
+<li><code>c()</code>: This is a function that combines a set of values into a vector in R. The values can be numbers or text items and should be separated by commas. If text, each text item should be in quotation marks.
+<ul>
+<li>Example: <code>Outcome &lt;- c(3, 4, 6, 2, 1)</code></li>
+<li>Example: <code>People &lt;- c("Sam", "Julie", "Mark")</code></li>
+</ul></li>
+<li><code>mean()</code>, <code>median()</code>, <code>min()</code>, <code>max()</code>, <code>range()</code>: These functions summarize vectors that are numeric/integers in nature.
+<ul>
+<li>Example <code>mean(Outcome)</code> takes the average of the values in the <code>Outcome</code> vector</li>
+</ul></li>
+<li><code>read.csv()</code>: This function loads a rectangular .csv file into R as a data.frame
+<ul>
+<li>Example: <code>turnout &lt;- read.csv("turnout.csv")</code></li>
+<li>Not all datasets will be .csv files. In the future, we will use other functions, such as <code>load()</code> or <code>read.dta()</code> to import datasets of different file types.</li>
+</ul></li>
+</ul>
+<p><em>Dataframes</em></p>
+<p>We have started working with dataframes in R. These objects are rectangular datasets that include a collection of vectors. Every column in a dataframe generally represents a different concept or “variable,” while each row represents a different unit or “observation.”</p>
+<ul>
+<li><code>$</code>: When we are working with vectors that are inside of a dataframe (the columns inside of a dataframe), we use the <code>$</code> to access them.
+<ul>
+<li>Example: <code>turnout$year</code> will show us the values in the <code>year</code> column vector inside our <code>turnout</code> rectangular dataframe</li>
+</ul></li>
+<li><code>nrow()</code>, <code>ncol()</code>, <code>dim()</code>, <code>head()</code>, <code>names()</code>: These functions help us explore the dataframes by telling us the number of rows and columns (the dimensions), giving us a sneak peek of the first 6 rows of the dataframe, or showing us the names of the variables (columns) in the data.
+<ul>
+<li>Example: <code>nrow(turnout)</code></li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
