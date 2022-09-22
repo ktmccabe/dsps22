@@ -6,7 +6,6 @@ Loops are a tool in R that are useful for situations where we want to do somethi
 
 A quick example using the Basque data from the previous section:
 
-
 ```{r, include=F}
 basque <- read.csv("data/basque.csv", stringsAsFactors = T)
 ```
@@ -31,6 +30,7 @@ regionsubset$gdpcap[regionsubset$year == min(regionsubset$year)]
 ```
 
 Ughhh can we automate this? we have 17 regions!!!
+
 ```{r}
 unique(basque$region)
 ```
@@ -54,28 +54,24 @@ We got all of the answers with just one chunk of code!
 
 ## The anatomy of a loop
 
-In many situations, we want to repeat the same calculations with
-different inputs. Loops allow you to avoid writing many similar code
-chunks. 
+In many situations, we want to repeat the same calculations with different inputs. Loops allow you to avoid writing many similar code chunks.
 
-  - The function `for(i in X){}}` will create a loop in
-your programming code where `i` is a counter and 
-  - `X` is a placeholder for a vector for the possible values of the counter.  
-  
+-   The function `for(i in X){}}` will create a loop in your programming code where `i` is a counter and
+-   `X` is a placeholder for a vector for the possible values of the counter.
+
 We use the following syntax:
 
 `for (i in X) {`
 
-  `command1...`
+`command1...`
 
-  `command2...`
+`command2...`
 
-  `...`
+`...`
 
 `}`
 
 to indicate we want to repeat command1 and command2 and .... as many commands as we want, for each `i` in the set of possible values for `i` stored in `X`.
-
 
 ### The key parts of a loop
 
@@ -92,43 +88,52 @@ result <- 11 + 2
 
 Note the pattern: we take some number and + 2 each time.
 
-  - It is the number that is changing -> what we will iterate.
-  
+-   It is the number that is changing -\> what we will iterate.
+
 For a loop, you want to:
 
-  1. The Meat: Write down the code for one version.
+1.  The Meat: Write down the code for one version.
+
 ```{r}
 result <- 6 + 2
 ```
-  2. The Bread: Embed this code in the loop syntax (`for(i in X){}`)
+
+2.  The Bread: Embed this code in the loop syntax (`for(i in X){}`)
+
 ```{r, eval=F}
 for(i in X){
     result <- 6 + 2
     }
 ```
-  3. Create a vector that contains the values you want to loop through
+
+3.  Create a vector that contains the values you want to loop through
 
 ```{r}
 somenumbers <- c(6, 8, 4, 7, 11)
 ```
-  4. Create a storage vector that will contain the results 
+
+4.  Create a storage vector that will contain the results
+
 ```{r}
 result <- rep(NA, length(somenumbers))
 ```
-  5. Modify the meat and bread to iterate by using `[i]`, and replace `X`.
+
+5.  Modify the meat and bread to iterate by using `[i]`, and replace `X`.
+
 ```{r}
 for(i in 1:length(somenumbers)){
   result[i] <- somenumbers[i] + 2
 }
 ```
+
       where `1:length(somenumbers)` reflects possible values `i` will take 
 
 ```{r}
 1:length(somenumbers)
 ```
 
-
 ### A short example
+
 Let's put these parts together:
 
 Suppose we want to add 2 to a set of numbers `c(6, 8, 4, 7, 11)`
@@ -145,8 +150,8 @@ result
 
 How does this work? Every iteration, the value of i changes.
 
-  - For example, when `i` is 1, we take the first value in our `somenumbers` vector  `somenumbers[1]`, add 2 to it, and store it in the first position of our container vector `result[1]`. When `i` is 2, we switch the number in the brackets to 2, corresponding to the second entry in each vector, and so on.
-  
+-   For example, when `i` is 1, we take the first value in our `somenumbers` vector `somenumbers[1]`, add 2 to it, and store it in the first position of our container vector `result[1]`. When `i` is 2, we switch the number in the brackets to 2, corresponding to the second entry in each vector, and so on.
+
 ```{r}
 # Suppose i is 1
 result[1] <- somenumbers[1] + 2
@@ -161,7 +166,6 @@ result[3] <- somenumbers[3] + 2
 result[3]
 ```
 
-
 ### Troubleshooting a loop
 
 The inside part of the loop should run if we set `i` to a particular value.
@@ -171,7 +175,7 @@ i <- 1
 result[i] <- somenumbers[i] + 2
 ```
 
-If you get an error here, there is something wrong with the meat! (and not necessarily the loop) 
+If you get an error here, there is something wrong with the meat! (and not necessarily the loop)
 
 ```{r}
 result[i]
@@ -184,7 +188,6 @@ i <- 1
 result[i] <- somenumberz[i] + 2
 ```
 
-
 ### Your turn
 
 Using a loop, for each value in our poll results, add 10 and divide by 100. Store in a vector called `adjustedpollresults`.
@@ -195,13 +198,15 @@ pollresults <- c(70, 40, 45, 60, 43, 80, 23)
 
 Remember the steps:
 
-  1. The Meat: Write down the code for one version.
-  2. The Bread: Embed this code in the loop syntax (`for(i in X){}`)
-  3. Create a vector that contains the values you want to loop through (here it's `pollresults`)
-  4. Create a storage vector that will contain the results (here it's `adjustedpollresults`)
-  5. Modify the meat and bread to iterate by using `[i]` and replace `X`.
+1.  The Meat: Write down the code for one version.
+2.  The Bread: Embed this code in the loop syntax (`for(i in X){}`)
+3.  Create a vector that contains the values you want to loop through (here it's `pollresults`)
+4.  Create a storage vector that will contain the results (here it's `adjustedpollresults`)
+5.  Modify the meat and bread to iterate by using `[i]` and replace `X`.
 
-<details> <summary>Try on your own, then expand for the solution.</summary>
+<details>
+
+<summary>Try on your own, then expand for the solution.</summary>
 
 ```{r}
 pollresults <- c(70, 40, 45, 60, 43, 80, 23)
@@ -215,63 +220,53 @@ adjustedpollresults
 
 </details>
 
-
 ## Application: U.S. Supreme Court
 
-The Court has changed a lot recently in its composition.
+The Court has changed a lot recently in its composition (and will continue to do so next term).
 
-<center>![](images/sccourt6.jpeg){width=40%} ![](images/sccourt.jpg){width=35%}</center>
-<center> ![](images/sccourt5.jpeg){width=40%} </center>
+<center>![](images/sccourt6.jpeg){width="40%"} ![](images/sccourt.jpg){width="35%"}</center>
 
-Ideology on the U.S. Supreme Court: With Kennedy out, Kavanaugh in, did the Court have a Conservative shift? 
+<center>![](images/sccourt5.jpeg){width="40%"}</center>
 
-Many people predicted it would. See this [FiveThirtyEight article](https://fivethirtyeight.com/features/how-kavanaugh-will-change-the-supreme-court/) as an example. The graph from the article shows Kavanaugh's predicted ideology. 
+Ideology on the U.S. Supreme Court: With Kennedy out, Kavanaugh in, did the Court have a Conservative shift? What about with the death of Ruth Bader Ginsburg and confirmation of Amy Coney Barrett?
 
-![](images/kav.png){width=50%}
+Many people predicted it would. See this [FiveThirtyEight article](https://fivethirtyeight.com/features/how-kavanaugh-will-change-the-supreme-court/) as an example. The graph from the article shows Kavanaugh's predicted ideology.
+
+![](images/kav.png){width="50%"}
 
 ![](images/kavcourt.png)
 
-We will explore how he changed the Court, with a focus on how the location of the median U.S. Supreme Court Justice shifted over time.
-
-For a video explainer of the code for this application, see below. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library("vembedr")
-library(knitr)
-
-embed_url("https://www.youtube.com/watch?v=gA1OZ8-SO9E")
-```
-The link to the video is https://youtu.be/gA1OZ8-SO9E. 
+We will explore how the Court has changed ideologically, with a focus on how the location of the median U.S. Supreme Court Justice shifted over time.
 
 Why does the median matter? A refresher on the Court
 
-  - President nominates the justice. Senate must confirm.
-  - Justices serve lifetime appointments.
-  - Trump nominated Gorsuch, following Scalia death, confirmed 2017.
-  - Trump nominated Kavanaugh, following Kennedy retirement, confirmed 2018.
-  - The Court typically has 9 justices, so whichever justice is the median in terms of ideology, can act as the "swing" vote in cases where the Court is divided 
-      + Anthony Kennedy was often the "swing" justice for a decade.
-  - With Kennedy out, the prediction is that the Court would return to similar balance as when O'Connor was the median. 
-      + In 2020, Amy Coney Barrett confirmed to Court, likely shifting the Court again. We can continue to update the data to examine what happened.
+-   President nominates the justice. Senate must confirm.
+-   Justices serve lifetime appointments.
+-   Trump nominated Gorsuch, following Scalia death, confirmed 2017.
+-   Trump nominated Kavanaugh, following Kennedy retirement, confirmed 2018.
+-   The Court typically has 9 justices, so whichever justice is the median in terms of ideology, can act as the "swing" vote in cases where the Court is divided
+    -   Anthony Kennedy was often the "swing" justice for a decade.
+-   With Kennedy out, the prediction was that the Court would return to similar balance as when O'Connor was the median.
+-   In 2020, Ruth Bader Ginsburg died and Amy Coney Barrett was confirmed to Court late that year, likely shifting the Court again.
+-   We can continue to update the data to examine what happened. We don't yet have data on changes to the Court that have come about since Justice Ketanji Brown Jackson was confirmed following the retirement of Justice Breyer.
 
+Let's load and explore our data.
 
-Let's load and explore our data. 
+-   `term`: is the year of the SC (1991-2020 except for 2005),
+-   `justiceName`: contains the name of the Justice, and\
+-   `post_mn`: includes the "ideal point"-- this is the estimated ideology
 
-  - `term`: is the year of the SC (1991-2019 except for 2005), 
-  - `justiceName`: contains the name of the Justice, and  
-  - `post_mn`: includes the "ideal point"-- this is the estimated ideology 
-
-Martin-Quinn Scores assess ideology based on how judges "cluster" together in their voting patterns. Every Justice gets an ideology score, and this score can change each SC term (year) they are on the Court. Higher scores are more conservative justices, and lower, more liberal. More information is available  at the [MQScores website](http://mqscores.lsa.umich.edu/measures.php)
+Martin-Quinn Scores assess ideology based on how judges "cluster" together in their voting patterns. Every Justice gets an ideology score, and this score can change each SC term (year) they are on the Court. Higher scores are more conservative justices, and lower, more liberal. More information is available at the [MQScores website](http://mqscores.lsa.umich.edu/measures.php)
 
 ```{r, include=F}
-justices <- read.csv("data/justices.csv", stringsAsFactors = T)
+justices <- read.csv("data/justices20.csv", stringsAsFactors = T)
 ```
 
 ```{r, eval=F}
-justices <- read.csv("justices.csv", stringsAsFactors = T)
+justices <- read.csv("justices20.csv", stringsAsFactors = T)
 
 ## alternative
-justices <- read.csv("https://raw.githubusercontent.com/ktmccabe/teachingdata/main/justices.csv", stringsAsFactors = T)
+justices <- read.csv("https://raw.githubusercontent.com/ktmccabe/teachingdata/main/justices20.csv", stringsAsFactors = T)
 ```
 
 We are going to make the name variable a character class. This will make R treat the names as raw text rather than valued categories. This will be useful later on in the application.
@@ -280,7 +275,6 @@ We are going to make the name variable a character class. This will make R treat
 ## justice Name as character
 justices$justiceName <- as.character(justices$justiceName)
 ```
-
 
 We can use `tapply()` to see the median "ideal point" (ideology score) each term in our data.
 
@@ -298,17 +292,15 @@ plot(x =names(medians),
      main="Median of US Supreme Court over Time")
 ```
 
-
 We see a conservative shift at the end of the plot. However, we cannot tell whether this represents a shift within a particular justice's ideology or a shift in which justice has become the median, due perhaps, to the change in the Court's composition.
 
 ***We need to find which justice is the median!***
 
 Loops to the rescue!
 
-
 We will start our process by definding the meat of the operation.
 
-  - We want to find the median SC Justice for each term. To get started, let's pretend we only have to find the median Supreme Court Justice for one term.
+-   We want to find the median SC Justice for each term. To get started, let's pretend we only have to find the median Supreme Court Justice for one term.
 
 ```{r}
 SCterms <- sort(unique(justices$term))
@@ -316,7 +308,6 @@ SCterms
 ```
 
 Note that where you have a vector where some entries in the vector are repeated (such as terms on the Supreme Court), you can extract the unique elements of that vector using the `unique()` function. You can also `sort()` them in numeric or alphabetical order. This won't be necessary most times.
-
 
 First, let's think about how we would do this for just one of the Supreme Court terms. Well we would first subset our data frame to contain only that one Supreme Court term.
 
@@ -340,7 +331,6 @@ Finally, we would figure out which justice has this median.
 result <- subterm$justiceName[subterm$post_mn == median.ip]
 result
 ```
-
 
 Now let's put it into our loop syntax
 
@@ -375,6 +365,11 @@ Did it work?
 ```{r}
 results
 ```
+
+Our evidence aligns with others:
+
+![](images/sccourt2.png)
+
 
 ### Troubleshooting the loop
 
@@ -415,17 +410,17 @@ We have now used the `text()` function. Similar to plot, the `text()` takes a se
 
 Why did the Court shift more conservative at the end of the time trend?
 
-  - Well we see that Justice Roberts became the median!
+-   Well we see that Justice Roberts and then Justice Kavanaugh became the median!
+
+
+![[FiveThirtyEight](https://fivethirtyeight.com/features/the-supreme-courts-conservative-supermajority-is-just-beginning-to-flex-its-muscles)](images/sccourt3.png)
+
 
 As [FiveThirtyEight](https://fivethirtyeight.com/features/roberts-is-the-new-swing-justice-that-doesnt-mean-hes-becoming-more-liberal/) notes, just because Justice Roberts is the new median, does not mean he has become more liberal. The Court composition is shifting, and the MQ scores also depend on the issues being heard before the Court.
 
 ![](images/sccourt.png)
 
-
 Recall, the Martin-Quinn scores measure justice ideology based on voting patterns. What are the strengths and weaknesses of using this type of information to score the ideology of a justice?
-
-
-
 
 ### Enhancing the plot
 
@@ -453,7 +448,8 @@ points(x =names(medians),
      ## Adds colors according to how results is coded
      col= ifelse(results == "AMKennedy", "orange", 
                  ifelse(results =="SDOConnor", "light blue", 
-                        "purple")), 
+                        ifelse(results == "JGRoberts", "purple",
+                        "red3"))), 
      pch=15, # point type- squares 
      cex=1.5) # size of points
 
@@ -462,7 +458,6 @@ axis(1, names(medians), cex.axis=.6)
 ```
 
 We have used the `points()` function. This adds an additional layer of points to a plot. It works much like the `plot` function in that in takes a set of x and y coordinates.
-
 
 We could change the look of the plot even more by adding a legend and altering the borders and look of the plot.
 
@@ -485,34 +480,30 @@ plot(x =names(medians),
 abline(h=seq(-.4, 1, .2), lty=2, col="light gray")
 
 ## Adds a legend
-legend("bottomleft", pch=15, col = c("orange", "light blue", "purple"),
-       c("Kennedy", "O'Connor", "Roberts"), bty="n")
+legend("bottomleft", pch=15, col = c("orange", "light blue", "purple", "red3"),
+       c("Kennedy", "O'Connor", "Roberts", "Kavanaugh"), bty="n")
 
 ## Adds the color-coded points
 points(x =names(medians), y= medians,
-     col= ifelse(results == "AMKennedy", "orange", 
-                 ifelse(results =="SDOConnor", "light blue", "purple")), 
+          col= ifelse(results == "AMKennedy", "orange", 
+                 ifelse(results =="SDOConnor", "light blue", 
+                        ifelse(results == "JGRoberts", "purple",
+                        "red3"))), 
      pch=15, cex=2)
 
 ## Adds our custom x-axis
 axis(1, names(medians), cex.axis=.6, tick=F)
 ```
 
-
 ### Wrapping Up
 
 We have calculated and visualized how the median U.S. Supreme Court Justice and Justice's ideology has changed over the past three decades.
 
-  - This gave us additional practice with loops and visualization
-  - We also gained exposure to an example of how political scientists take a large amount of information-- votes on all Supreme Court cases-- and try to summarize it using a single number that represents how liberal or conservative a justice is
-  
+-   This gave us additional practice with loops and visualization
+-   We also gained exposure to an example of how political scientists take a large amount of information-- votes on all Supreme Court cases-- and try to summarize it using a single number that represents how liberal or conservative a justice is
+
 This type of information can be used for many social science goals: 1) To describe trends in the Court 2) To help explain why the Court has voted a particular way on recent cases 3) To predict how the Court will vote in the future as new justices arrive.
 
-With Amy Coney Barrett now on the Court, we can start to see initial changes in the Court composition. The MQ scores will continue to be updated to allow for future exploration of these dynamics.
+With Amy Coney Barrett now on the Court for multiple terms and Ketanji Brown Jackson beginning to decide cases, the MQ scores will continue to be updated to allow for future exploration of these dynamics.
 
-![[FiveThirtyEight](https://fivethirtyeight.com/features/the-supreme-courts-conservative-supermajority-is-just-beginning-to-flex-its-muscles
-)](images/sccourt3.png)
-
-
-
-
+![[FiveThirtyEight](https://fivethirtyeight.com/features/how-ketanji-brown-jackson-could-change-the-supreme-court/)](images/sccourtkj.png)

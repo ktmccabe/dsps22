@@ -64,9 +64,7 @@ Snapshot of Concrete and Placebo comparison conditions
 
 For a video explainer of the code for boxplots and barplots, see below. The video only discusses the code. Use the notes and lecture discussion for additional context. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
 
-
 {{< video src="https://www.youtube.com/watch?v=QmQr4lfrmUc" >}}
-
 
 Let's load the data! Here, note that the data file is in a .RData format instead of .csv. This means that instead of using `read.csv`, we should use a function to load the data that is suitable for the .RData format. This will be `load`. That function works the following way:
 
@@ -137,19 +135,18 @@ How should we interpret these results? Does status or social approval motivation
 Comparing frequencies (raw N), proportions, and/or means across categories
 
 ```{r, eval=T, echo=F}
-valuesbar <- c(20, 40, 50, 10, 60)
+valuesbar <- c(20, 30, 40, 10)
 
-namesbar <- c("Car rides \n to Malibu",
-              "Strawberry ice cream,\n One spoon for two",
-              "Trading jackets",
-              "Watching reruns \n of Glee",
-              "Being annoying \n Singing in harmony")
+namesbar <- c("Livingston Dining \n Commons",
+              "Neilson \n Dining Hall",
+              "Busch \n Dining Hall",
+              "Brower \n Commons")
 
 barplot(valuesbar,
         names=namesbar,
         cex.names = .6,
-        main="Level of deja vu",
-        ylab="Avg. Feeling of deja vu",
+        main="Hypothetical Evaluation of RU Dining",
+        ylab="Percent Prefer Dining Option",
         cex.lab = .7, 
         col="red3")
 ```
@@ -159,8 +156,8 @@ We will use the `barplot()` function.
 -   In contrast to the boxplot, the barplot function takes a vector of values that will serve as the top of the bars in the plot-- it does not summarize a variable from within the function
     -   E.g., we could supply it a set of means to plot, not a raw variable
 -   Many of the other arguments are aesthetics similar to those when working with boxplot.
--   This means that barplots are pretty easy to create in R. We can supply it a short vector of any values (e.g., `valuesbar <- c(20, 40, 50, 10, 60)`), and we could also supply it a vector of any names to label those values.
-    -   For real applications, this means we could supply a barplot with the output of a `tapply()` function, a `table()` summarizing a single variable, or a set of `mean()` values we have combined into a vector.
+-   This means that barplots are pretty easy to create in R. We can supply it a short vector of any values (e.g., `valuesbar <- c(20, 30, 40, 10)`), and we could also supply it a vector of any names to label those values.
+    -   For real applications, this means we could supply a barplot with the output of a `tapply()` function, a `table()` summarizing a single variable, or a set of `mean()` values we have combined into a vector using `c()`.
 
 For example, in experiments, we may use barplots to compare the mean from the treatment group(s) $\bar{Y}(1)$ to the control $\bar{Y}(0)$ on some outcome. Let's do it!
 
@@ -210,6 +207,10 @@ barplot(condmeans,
         las = 1) # controls angle of axis labels
 dev.off()
 ```
+
+Alternatively, you can save it as an image, by going to the plot window in your RStudio environment, and clicking on Export -> Save as Image. Here, you can save it in any file format you would like, as well as change the dimensions.
+
+![](images/saveplot.png)
 
 ### Creating New Variables
 
@@ -310,9 +311,7 @@ table(marriage$treatment, marriage$study)
 
 For a video explainer of the code for the barplot, scatter plot and histogram created with this application, see below. The video only discusses the code. Use the notes and lecture discussion for additional context. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
 
-
 {{< video src="https://www.youtube.com/watch?v=ukexpAulAAk" >}}
-
 
 Let's focus on study 1 only.
 
@@ -330,7 +329,7 @@ In experiments, we compare the mean from the treatment group(s) $\bar{Y}(1)$ to 
 marriage1$outcome <- marriage1$therm2 - marriage1$therm1
 ```
 
-### Creating new variable
+### Recall: Creating new variables
 
 Let's create a new variable `treatmentnew` that collapses the two Recycling and Same-Sex marriage conditions.
 
@@ -348,7 +347,7 @@ marriage1$treatmentnew <- as.factor(marriage1$treatmentnew)
 table(marriage1$treatmentnew)
 ```
 
-### Using ifelse to create new variable
+### Recall: Using ifelse to create new variable
 
 An alternative way we could create a variable is to use `ifelse`
 
@@ -430,7 +429,8 @@ Range of Correlation is between $-1$ and $1$
 
 -   Look at the graphs below for examples of high and low positive and negative correlations.
 
-![*R for Dummies*](images/corrdummies.png){width="60%"}
+![From *R for Dummies*](images/corrdummies.png){width="60%"}
+
 
 The `plot()` function in R works using x and y coordinates.
 
@@ -512,12 +512,44 @@ While the original article was retracted
     -   Broockman and Kalla. 2020. "Reducing exclusionary attitudes through interpersonal conversation: evidence from three field experiments." American Political Science Review
     -   Kalla and Broockman. 2021. "Which narrative strategies durably reduce prejudice? Evidence from field and survey experiments supporting the efficacy of perspective-getting." American Journal of Political Science. Forthcoming.
 
+## Line Plots
+
+In this application, we will create a line plot in R. Line plots are built very similarly to scatterplots. We provide R an input of values for the x-axis and corresponding values on the y-axis.
+
+For example, if we wanted to plot the US life expectancy for the past few years from 2018-2021, we could do the following based on data from the National Center for Health Statistics:
+
+```{r}
+years <- c(2018, 2019, 2020, 2021)
+yvalues <- c(78.7, 78.8, 77, 76.1)
+
+## Key to making this a line plot is type="l"
+plot(x=years,
+     y=yvalues,
+     type="l",
+     main="US Life Expectancy by year",
+     xlab = "Year",
+     ylab = "Life Expectancy at birth",
+     las=2 ) # orientation of axis labels
+```
+
+```{r}
+## Alternate approach is to customize axis
+plot(x=1:4,
+     y=yvalues,
+     type="l",
+     main="US Life Expectancy by year",
+     xlab = "Year",
+     ylab = "Life Expectancy at birth",
+     las=2, # orientation of axis labels
+     xaxt="n") # remove original axis
+axis(1, at=1:4, labels = years) # label points only at relevant ticks
+```
+
+The two vectors of values may come from variables in your data or may come from calculations you make using those variables. 
+
+Let's do a more complex example and break this down step by step.
+
 ## Application: Trends during COVID
-
-For a video companion for sections 4.7-4.9 and the code for line/trend plots, see below. The video only discusses the notes and code. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)
-
-
-{{< video src="https://www.youtube.com/watch?v=UNJximu2suM" >}}
 
 
 Since the onset of the pandemic in 2020, researchers have evaluated attitudinal and behavioral responses to policy changes, political messages, and COVID case/hospitalization/death rates.
@@ -576,30 +608,42 @@ class(covid$Dates)
 The researchers continue to add to these data. Let's look at the portion of data from 2019 to April 2022.
 
 -   Note the use of `as.Date` again to make sure R knows our text should be treated as a date
--   Note the use of the greater than or equal to `>=` and less than or equal signs `<=` to specify which rows we want to keep in the data. We want rows that are in dates after January 1, 2019 and (`&`) on or before April 1, 2022.
+-   Note the use of the greater than or equal to `>=` and less than or equal signs `<=` to specify which rows we want to keep in the data. We want rows that are in dates after January 1, 2019 and (`&`) on or before April 25, 2022.
 
 ```{r}
 covidsub <- subset(covid, Dates >= as.Date("2019-01-01") &
-                     Dates <= as.Date("2022-04-01"))
+                     Dates <= as.Date("2022-04-25"))
+```
+These data are collected by week. That is very detailed. While that may be useful, let us create another variable that contains just the month and year, which will allow us to calculate the average per month. With a date variable, we can use the `format` function to change the format to just year and month.
+
+```{r}
+covidsub$monthyear <- format(covidsub$Dates, "%Y-%m")
+range(covidsub$monthyear)
 ```
 
-## Line Plots in R
 
 Where we are going ...
 
 ```{r, echo=F}
-plot(x=covid$Dates,y=covid$Northeast,
+mobilitybymonthNE <- tapply(covidsub$Northeast, covidsub$monthyear, mean,
+                          na.rm=T)
+
+mobilitybymonthSO <- tapply(covidsub$South, covidsub$monthyear, mean,
+                          na.rm=T)
+
+plot(x=1:length(mobilitybymonthNE),y=mobilitybymonthNE,
      type="l", pch=15,
-     main="Social Mobility by Date and Region",
+     main="Avg. Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
      ylim = c(0, 80), las=1,
      lwd=2,
      bty="n",
      xaxt="n")
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
-axisdates <- seq(as.Date("2019-01-01"), as.Date("2022-04-01"), by="month")
-axis(1, at = axisdates, format(axisdates, "%b-%Y"), las=2, cex.axis=.7)
+lines(x=1:length(mobilitybymonthSO),y=mobilitybymonthSO, col="red3", lwd=2)
+axis(1, at = 1:length(mobilitybymonthNE), 
+     labels= names(mobilitybymonthNE), 
+     las=2, cex.axis=.7)
 legend("bottomleft",  col=c("red3", "black"), 
        c("South", "Northeast"), cex = .7, lty=1,lwd=2,
        bty="n")
@@ -608,12 +652,37 @@ legend("bottomleft",  col=c("red3", "black"),
 Starting from the bottom ...
 
 -   Let's first create a scatterplot by providing R with our two variables
--   In a trend/line plot, we want time on the x-axis, in this case the `Dates` column
--   We want our outcome on the y-axis, in this case, social mobility
+-   In a trend/line plot, we want each month on the x-axis
+-   We want our outcome on the y-axis, in this case, average social mobility by month
 -   Ultimately we will want to compare the Northeast with the South. We will plot one line at a time, starting with the Northeast
 
+We first need to find the average by month. Recall our `tapply()` function.
+
 ```{r}
-plot(x=covidsub$Dates,y=covidsub$Northeast, pch=16) # pch is point type
+mobilitybymonthNE <- tapply(covidsub$Northeast, covidsub$monthyear, mean,
+                          na.rm=T)
+
+mobilitybymonthSO <- tapply(covidsub$South, covidsub$monthyear, mean,
+                          na.rm=T)
+```
+
+Let's look at the output for the Northeast. Each value is what we ultimately want on the y-axis-- the average social mobility in a given month.
+
+```{r}
+mobilitybymonthNE
+```
+
+We want to plot them each at their own point on the x-axis, from the first month to the last month. We can start by creating a vector of the same length as we have months:
+
+```{r}
+1:length(mobilitybymonthNE)
+```
+
+These become our two inputs in the plot.
+
+```{r}
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE, pch=16) # pch is point type
 ```
 
 We now transform it to a line by specifying `type="l"`
@@ -621,15 +690,17 @@ We now transform it to a line by specifying `type="l"`
 -   By default, R creates a plot with `type=p` for points. R also has `type=b` which has both a line and points.
 
 ```{r}
-plot(x=covidsub$Dates,y=covidsub$Northeast,type="l") # makes it a line
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE, type="l") # makes it a line
 ```
 
 Let us change the aesthetics a bit by adding labels and removing the border with `bty="n"`.
 
 ```{r}
-plot(x=covid$Dates,y=covid$Northeast,
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
      type="l", 
-     main="Social Mobility by Date and Region",
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
      ylim = c(0, 80), # y-axis limits
@@ -643,54 +714,68 @@ Let's add a comparison line with the `lines()` function to look at trends for th
 -   Note that this is outside of the `plot()` function, but the inputs are very similar. We supply a set of x and y coordindates.
 
 ```{r}
-plot(x=covid$Dates,y=covid$Northeast,
-     type="l", pch=15,
-     main="Social Mobility by Date and Region",
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
+     type="l", 
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
-     ylim = c(0, 80), las=1,
-     lwd=2,
-     bty="n")
+     ylim = c(0, 80), # y-axis limits
+     las=1, # orientation of axis labels
+     lwd=2, # line width
+     bty="n") # removes border
 ## Add line to the plot 
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
+lines(x=1:length(mobilitybymonthSO),
+     y=mobilitybymonthSO, col="red3", lwd=2)
 ```
 
 Let's create our own axis for the plot to add detail. To do this, we add `xaxt` to the `plot` function and then use `axis()` below the function.
 
+The labels we will add are the actual months in the data. These happen to be the labels or `names` of our vectors:
 ```{r}
-plot(x=covid$Dates,y=covid$Northeast,
-     type="l", pch=15,
-     main="Social Mobility by Date and Region",
+names(mobilitybymonthNE)
+```
+
+```{r}
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
+     type="l", 
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
-     ylim = c(0, 80), las=1,
-     lwd=2,
+     ylim = c(0, 80),
+     las=1, 
+     lwd=2, 
      bty="n",
-     xaxt="n") # remove original x-axis
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
-## create the numbers we want to add to the new x-axis
-axisdates <- seq(as.Date("2019-01-01"), as.Date("2022-04-01"), by="month")
+     xaxt="n") # removes original x-axis
+## Add line to the plot 
+lines(x=1:length(mobilitybymonthSO),
+     y=mobilitybymonthSO, col="red3", lwd=2)
 ## add the axis the "1" means x-axis. A "2" would create a y-axis
-## the format argument is unique to this date example
-### "%b-%Y" are telling R to display the month and year, with the month in words
-axis(1, at = axisdates, labels=format(axisdates, "%b-%Y"), las=2)
+axis(1, at = 1:length(mobilitybymonthNE), 
+     labels=names(mobilitybymonthNE), las=2)
 ```
 
 Finally, let's add a `legend()`. Now we're here!
 
 ```{r}
-plot(x=covid$Dates,y=covid$Northeast,
-     type="l", pch=15,
-     main="Social Mobility by Date and Region",
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
+     type="l", 
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
-     ylim = c(0, 80), las=1,
-     lwd=2,
+     ylim = c(0, 80),
+     las=1, 
+     lwd=2, 
      bty="n",
-     xaxt="n")
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
-axisdates <- seq(as.Date("2019-01-01"), as.Date("2022-04-01"), by="month")
-axis(1, at = axisdates, format(axisdates, "%b-%Y"), las=2)
+     xaxt="n") # removes original x-axis
+## Add line to the plot 
+lines(x=1:length(mobilitybymonthSO),
+     y=mobilitybymonthSO, col="red3", lwd=2)
+## add the axis the "1" means x-axis. A "2" would create a y-axis
+axis(1, at = 1:length(mobilitybymonthNE), 
+     labels=names(mobilitybymonthNE), las=2)
 
 ## Add legend, "bottomleft" indicates where on the plot to locate it
 ## Could use "topright" instead, for example
@@ -706,19 +791,23 @@ legend("bottomleft",  col=c("red3", "black"),
 ***What types of research questions could these trends generate?***
 
 ```{r, echo=F}
-plot(x=covid$Dates,y=covid$Northeast,
-     type="l", pch=15,
-     main="Social Mobility by Date and Region",
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
+     type="l", 
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
-     ylim = c(0, 80), las=1,
-     lwd=2,
+     ylim = c(0, 80),
+     las=1, 
+     lwd=2, 
      bty="n",
-     xaxt="n")
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
-axisdates <- seq(as.Date("2019-01-01"), as.Date("2022-04-01"), by="month")
-axis(1, at = axisdates, format(axisdates, "%b-%Y"), las=2)
-
+     xaxt="n") # removes original x-axis
+## Add line to the plot 
+lines(x=1:length(mobilitybymonthSO),
+     y=mobilitybymonthSO, col="red3", lwd=2)
+## add the axis the "1" means x-axis. A "2" would create a y-axis
+axis(1, at = 1:length(mobilitybymonthNE), 
+     labels=names(mobilitybymonthNE), las=2)
 ## Add legend, "bottomleft" indicates where on the plot to locate it
 ## Could use "topright" instead, for example
 legend("bottomleft",  col=c("red3", "black"), 
@@ -732,7 +821,7 @@ What would you want to know about how movement has changed since the start of CO
 
 -   We will do an initial exploration to reveal some of the difficulties with making causal claims when we do not have the luxury of conducting an experiment. This discussion will continue in the next section.
 
-One thing that becomes apparent in the trend data is that mobility decreased substantially after mid-March of 2020. As many of us know all too well, that corresponds to shortly after the onset of the pandemic in the United States.
+One thing that becomes apparent in the trend data is that mobility decreased substantially after March of 2020. As many of us know all too well, that corresponds to shortly after the onset of the pandemic in the United States.
 
 With that said, we may ask
 
@@ -762,34 +851,43 @@ So what can we do?
 
 Let's examine social mobility just before vs. just after the federal announcement of social distancing guidelines to stop the spread of COVID-19.
 
--   To do so, we will draw a vertical line at March 16, 2020
-    -   Note we use `abline(v=)` to indicate a vertical line at a location
+-   To do so, we will draw a vertical line at March 2020
+    -   Note we use `abline(v=)` to indicate a vertical line at a location to cross the x-axis
+
+This is the 15th entry in our vector, which means at point 15 on the x-axis.
+```{r}
+mobilitybymonthNE["2020-03"]
+mobilitybymonthNE[15]
+```
+
 -   We will also add text to inform views what that line represents
     -   Note we use `text(x= , y=, labels)` to indicate where to put text
 
 ```{r}
-plot(x=covid$Dates,y=covid$Northeast,
-     type="l", pch=15,
-     main="Social Mobility by Date and Region",
+plot(x=1:length(mobilitybymonthNE),
+     y=mobilitybymonthNE,
+     type="l", 
+     main="Social Mobility by Month and Region",
      ylab="Twitter Social Mobility Index",
      xlab="",
-     ylim = c(0, 80), las=1,
-     lwd=2,
+     ylim = c(0, 80),
+     las=1, 
+     lwd=2, 
      bty="n",
-     xaxt="n")
-lines(x=covid$Dates,y=covid$South, col="red3", lwd=2)
-axisdates <- seq(as.Date("2019-01-01"), as.Date("2022-04-01"), by="month")
-axis(1, at = axisdates, format(axisdates, "%b-%Y"), las=2, cex.axis=.7)
-legend("bottomleft",  col=c("red3", "black"), 
-       c("South", "Northeast"), cex = .7, lty=1,lwd=2,
-       bty="n")
+     xaxt="n") # removes original x-axis
+## Add line to the plot 
+lines(x=1:length(mobilitybymonthSO),
+     y=mobilitybymonthSO, col="red3", lwd=2)
 
+## add the axis the "1" means x-axis. A "2" would create a y-axis
+axis(1, at = 1:length(mobilitybymonthNE), 
+     labels=names(mobilitybymonthNE), las=2)
 ## add dashed blue vertical line
-abline(v=as.Date("2020-03-16"), lty=2, col="dodgerblue", lwd=1.5)
+abline(v=15, lty=2, col="dodgerblue", lwd=1.5)
 
 ## add text near the line
 ## the \n breaks the text into different lines
-text(x=as.Date("2020-05-01"), y=65, labels = "Federal \n Announcement", cex=.6)
+text(x=15, y=65, labels = "Federal \n Announcement", cex=.6)
 ```
 
 We see mobility does appear to be lower after the announcement relative to before the announcement. Is this causal?

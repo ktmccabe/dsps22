@@ -10,6 +10,11 @@ book:
     - intro.qmd
     - 02-Description.qmd
     - 03-CausalityI.qmd
+    - 04-Visualization.qmd
+    - 05-Causalityii.qmd
+    - 06-Loops.qmd
+    - 07-Prediction.qmd
+    - 08-Regression.qmd
   number_sections: true
   number-depth: 4
   page-navigation: true
