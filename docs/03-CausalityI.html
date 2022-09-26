@@ -234,6 +234,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#ifelse-statements" id="toc-ifelse-statements" class="nav-link" data-scroll-target="#ifelse-statements"> <span class="header-section-number">3.8.1</span> ifelse statements</a></li>
   </ul></li>
   <li><a href="#types-of-experiments" id="toc-types-of-experiments" class="nav-link" data-scroll-target="#types-of-experiments"> <span class="header-section-number">3.9</span> Types of Experiments</a></li>
+  <li><a href="#wrapping-up-causation-with-experiments" id="toc-wrapping-up-causation-with-experiments" class="nav-link" data-scroll-target="#wrapping-up-causation-with-experiments"> <span class="header-section-number">3.10</span> Wrapping Up Causation with Experiments</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-r-tools-in-this-section" id="toc-summary-of-r-tools-in-this-section" class="nav-link" data-scroll-target="#summary-of-r-tools-in-this-section"> <span class="header-section-number">3.10.1</span> Summary of R tools in this section</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -809,8 +813,43 @@ name         0   1
 <p>Example: A/B Testing in Campaigns</p>
 <p><img src="images/whichsubject.png" class="img-fluid"></p>
 <p>Emails are virtually costless. Very easy to ask: Are people more likely to open them with X subject or Y subject or Z subject?</p>
+</section>
+<section id="wrapping-up-causation-with-experiments" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="wrapping-up-causation-with-experiments"><span class="header-section-number">3.10</span> Wrapping Up Causation with Experiments</h2>
+<p>In this section, we have discussed what it means to make a causal claim, why it is essentially impossible to make causal comparisons in real life due to the fundamental problem of causal inferences, and how experiments can help us make comparisons that approximate our causal ideals.</p>
+<p>In the next section, we start to examine how to visualize data.</p>
+<section id="summary-of-r-tools-in-this-section" class="level3" data-number="3.10.1">
+<h3 data-number="3.10.1" class="anchored" data-anchor-id="summary-of-r-tools-in-this-section"><span class="header-section-number">3.10.1</span> Summary of R tools in this section</h3>
+<p>Here are some of the R tools we used in this section:</p>
+<ul>
+<li><code>table()</code>: this function summarizes the frequency of observations that take a particular value. The input is one or more variables in your data.
+<ul>
+<li>E.g., <code>table(resume$sex)</code> or <code>table(resume$sex, resume$call)</code></li>
+</ul></li>
+<li><code>prop.table</code>: this function wraps around a <code>table()</code> function and converts the table from a set of frequencies to proportions.
+<ul>
+<li>E.g., <code>prop.table(table(resume$sex, resume$call))</code></li>
+<li>You can add an argument <code>margin = 2</code> or <code>margin = 1</code> such that the proportions in a given column (or row) sum up to 1. We did this to more easily calculate the callback rate for black vs.&nbsp;white applicants.</li>
+</ul></li>
+<li><code>tapply()</code>: this function applies a given operation like <code>mean</code> to whichever variable is in the first position, separately or “conditionally” by different values of the variable in the second “index” position.
+<ul>
+<li>E.g., <code>tapply(resume$call, INDEX=resume$race, mean)</code> finds the average callbacks for applicants separately for different races of applicants in the data.</li>
+</ul></li>
+<li><code>== &gt; &lt; &gt;= &lt;= !=</code>: Relational operators help us set up “logical statements” in R that are evaluated as <code>TRUE</code> or <code>FALSE</code>
+<ul>
+<li>E.g., <code>resume$race == "black"</code> evaluates whether for each observation in the race column is “black” in which case the statement is <code>TRUE</code> or not black, in which case the statement is <code>FALSE</code></li>
+<li>E.g., <code>resume$call &lt; 1</code> evaluates whether for each observation in the call column has a value less than one in which case the statement is <code>TRUE</code> or not less than 1, in which case the statement is <code>FALSE</code></li>
+<li>We can then isolate certain parts of columns using relational operators and the brackets <code>[]</code>. For example we can take the mean callbacks for applicants who are black using <code>mean(resume$call[resume$race == "black"])</code></li>
+</ul></li>
+<li><code>&amp;</code> and <code>|</code>: These are boolean operators that allow us to combine multiple relational operators using an AND statement (<code>&amp;</code>) or an OR statement <code>|</code>. Note the bar is a bar that is usually above your backslash key and not a capitalized i.
+<ul>
+<li>E.g., <code>mean(resume$call[resume$race == "black" &amp; resume$sex == "female"])</code></li>
+</ul></li>
+<li><code>subset()</code>: We can subset whole rows of our data using this function. It takes two inputs– the first is the name of the original dataframe, and the second is a relational statement. Usually we store this output in R by assigning the results to a new object, a dataframe that contains only those rows for which the logical statement using the relational operators is true. E.g., <code>females &lt;- subset(resume, sex == "female")</code> subsets our data to keep only those rows where applicants were female.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
