@@ -11,7 +11,7 @@ Recall that we predict (estimate/guess) some unknown using information we have -
 2.  Assess accuracy and precision
 3.  Iterate to improve the prediction/classification
     -   Often, we [repeat steps 1-3](https://www.youtube.com/watch?v=rXPfovXw2tw) until we are confident in your method for predicting.
-4. Danger Zone: Eventually, after you have tested the approach and are satisfied with the accuracy, you may start applying it to new data for which you do not know the right answer.
+4.  Danger Zone: Eventually, after you have tested the approach and are satisfied with the accuracy, you may start applying it to new data for which you do not know the right answer.
 
 ## Regression in the wild.
 
@@ -41,9 +41,7 @@ We will use regression to make these predictions.
 
 *For a video explainer of the code for this application, see below. (Via youtube, you can speed up the playback to 1.5 or 2x speed.)*
 
-
 {{< video src="https://www.youtube.com/watch?v=wtn-W8Uv32E">}}
-
 
 We use `baseball.csv` data
 
@@ -247,7 +245,6 @@ Just like we had root mean squared error in our poll predictions, we can calcula
 
 -   Just like with the polls, this is the square root of the mean of our squared prediction errors, or "residuals" in the case of regression.
     -   R will give us this output using this formula where `fit` is the hypothetical name we have provided for the regression model: `sqrt(mean(fit$residuals^2))`
-
 
 ```{r}
 sqrt(mean(fit$residuals^2))
@@ -528,7 +525,6 @@ sqrt(mean(fit$residuals^2))
 sqrt(mean(fitnew$residuals^2))
 ```
 
-
 With little change from the addition of predictors, let's stick with the more simple model and explore the prediction errors.
 
 ```{r}
@@ -626,9 +622,7 @@ Macro political and economic fundamentals are sometimes used for early forecasti
 
 Below is a video explainer of this application, which uses cross-validation.
 
-
 {{< video src="https://www.youtube.com/watch?v=Wqj9Jm8heAA" >}}
-
 
 The data and model are based on the [FAIR model](Based%20on%20the%20FAIR%20model%20for%20forecasting%20elections%20\url%7Bhttps://fairmodel.econ.yale.edu/vote2016/computev.htm%7D) of forecasting.
 

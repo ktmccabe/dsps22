@@ -510,43 +510,34 @@ In the next section, we start to examine how to evaluate causal claims.
 
 We have touched on a number of R tools thus far. Here is a summary of some of the key items to remember going forward:
 
-  - `setwd()`: sets the working directory in R, which tells R which folder on your computer contains the datasets or other R files where you will be working. You should get into the habit of setting your working directory each time you work in RStudio.
-      + Can set this in the toolbar Session -> Set Working Directory -> Choose Directory, followed by clicking the "Open" button on the folder where you want to work.
-      + Example: `setwd("~/Downloads/Data Science")`
-  - `##`: Hashtags are used to help annotate your code. Anything behind a hashtag is treated as plain text
-  - `+ - * /`: These are some of the mathematical operators you can use in R
-      + You can also control which operations are performed first using `()` just like you would do with math outside of R. For example, try to compare the answer to `6 + 4 * 3` with `(6 + 4) * 3`
-  - `<-`: This is an assignment tool that allows us to store calculations, vectors, datasets, and more as *objects* in R.
-      + Example: `sum53 <- 5 + 3` creates an object called `sum53` that stores the calculation on the right.
-  - `[]`: Brackets are used to extract specific components of objects we create. The number(s) inside the brackets tell us which entries to extract.
-      + Example: `Outcome[2]` will tell us to extract the second entry in the object `Outcome`
-      + Note: when we use datasets, the brackets will have two entries, one corresponding to the row entry and one corresponding to the column. Example `turnout[1,2]` means the entry in the first row and second column.
+-   `setwd()`: sets the working directory in R, which tells R which folder on your computer contains the datasets or other R files where you will be working. You should get into the habit of setting your working directory each time you work in RStudio.
+    -   Can set this in the toolbar Session -\> Set Working Directory -\> Choose Directory, followed by clicking the "Open" button on the folder where you want to work.
+    -   Example: `setwd("~/Downloads/Data Science")`
+-   `##`: Hashtags are used to help annotate your code. Anything behind a hashtag is treated as plain text
+-   `+ - * /`: These are some of the mathematical operators you can use in R
+    -   You can also control which operations are performed first using `()` just like you would do with math outside of R. For example, try to compare the answer to `6 + 4 * 3` with `(6 + 4) * 3`
+-   `<-`: This is an assignment tool that allows us to store calculations, vectors, datasets, and more as *objects* in R.
+    -   Example: `sum53 <- 5 + 3` creates an object called `sum53` that stores the calculation on the right.
+-   `[]`: Brackets are used to extract specific components of objects we create. The number(s) inside the brackets tell us which entries to extract.
+    -   Example: `Outcome[2]` will tell us to extract the second entry in the object `Outcome`
+    -   Note: when we use datasets, the brackets will have two entries, one corresponding to the row entry and one corresponding to the column. Example `turnout[1,2]` means the entry in the first row and second column.
 
-*Functions*
-We have already started using a number of *functions* in R, which are operations we ask R to do for us, such as creating vectors, importing data, or summarizing data by finding the mean, range, etc. Functions come in the same format, which starts with the function name followed by parentheses. Example: `mean()`. Each function then takes a particular input(s). When you "run" a line of code with a function, R applies the function to the input. 
+*Functions* We have already started using a number of *functions* in R, which are operations we ask R to do for us, such as creating vectors, importing data, or summarizing data by finding the mean, range, etc. Functions come in the same format, which starts with the function name followed by parentheses. Example: `mean()`. Each function then takes a particular input(s). When you "run" a line of code with a function, R applies the function to the input.
 
-  - `c()`: This is a function that combines a set of values into a vector in R. The values can be numbers or text items and should be separated by commas. If text, each text item should be in quotation marks.
-      + Example: `Outcome <- c(3, 4, 6, 2, 1)`
-      + Example: `People <- c("Sam", "Julie", "Mark")`
-  - `mean()`, `median()`, `min()`, `max()`, `range()`: These functions summarize vectors that are numeric/integers in nature.
-      + Example `mean(Outcome)` takes the average of the values in the `Outcome` vector
-  - `read.csv()`: This function loads a rectangular .csv file into R as a data.frame
-      + Example: `turnout <- read.csv("turnout.csv")`
-      + Not all datasets will be .csv files. In the future, we will use other functions, such as `load()` or `read.dta()` to import datasets of different file types.
+-   `c()`: This is a function that combines a set of values into a vector in R. The values can be numbers or text items and should be separated by commas. If text, each text item should be in quotation marks.
+    -   Example: `Outcome <- c(3, 4, 6, 2, 1)`
+    -   Example: `People <- c("Sam", "Julie", "Mark")`
+-   `mean()`, `median()`, `min()`, `max()`, `range()`: These functions summarize vectors that are numeric/integers in nature.
+    -   Example `mean(Outcome)` takes the average of the values in the `Outcome` vector
+-   `read.csv()`: This function loads a rectangular .csv file into R as a data.frame
+    -   Example: `turnout <- read.csv("turnout.csv")`
+    -   Not all datasets will be .csv files. In the future, we will use other functions, such as `load()` or `read.dta()` to import datasets of different file types.
 
 *Dataframes*
 
 We have started working with dataframes in R. These objects are rectangular datasets that include a collection of vectors. Every column in a dataframe generally represents a different concept or "variable," while each row represents a different unit or "observation."
 
-  - `$`: When we are working with vectors that are inside of a dataframe (the columns inside of a dataframe), we use the `$` to access them.
-      + Example: `turnout$year` will show us the values in the `year` column vector inside our `turnout` rectangular dataframe
-  - `nrow()`, `ncol()`, `dim()`, `head()`, `names()`: These functions help us explore the dataframes by telling us the number of rows and columns (the dimensions), giving us a sneak peek of the first 6 rows of the dataframe, or showing us the names of the variables (columns) in the data.
-      + Example: `nrow(turnout)`
-
-
-
-  
-  
-
-
-
+-   `$`: When we are working with vectors that are inside of a dataframe (the columns inside of a dataframe), we use the `$` to access them.
+    -   Example: `turnout$year` will show us the values in the `year` column vector inside our `turnout` rectangular dataframe
+-   `nrow()`, `ncol()`, `dim()`, `head()`, `names()`: These functions help us explore the dataframes by telling us the number of rows and columns (the dimensions), giving us a sneak peek of the first 6 rows of the dataframe, or showing us the names of the variables (columns) in the data.
+    -   Example: `nrow(turnout)`
