@@ -507,7 +507,7 @@ ggplot()+
 anim_save("italyspain.gif")
 ```
 
-![](italyspain.gif)
+![](images/italyspain.gif)
 
 ### Mapping Animation with World Map
 
@@ -565,7 +565,7 @@ ggplot()+
 anim_save("covidplot.gif")
 ```
 
-![](covidplot.gif)
+![](images/covidplot.gif)
 
 How could we improve this visualization?
 
