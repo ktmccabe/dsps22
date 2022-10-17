@@ -54,6 +54,9 @@ We got all of the answers with just one chunk of code!
 
 ## The anatomy of a loop
 
+*A short video introduction to the anatomy of a loop*
+{{< video src="https://www.youtube.com/watch?v=RDsnhVpM1To" >}}
+
 In many situations, we want to repeat the same calculations with different inputs. Loops allow you to avoid writing many similar code chunks.
 
 -   The function `for(i in X){}}` will create a loop in your programming code where `i` is a counter and
@@ -222,6 +225,10 @@ adjustedpollresults
 
 ## Application: U.S. Supreme Court
 
+*A video explainer of the loop in this section*
+{{< video src="https://www.youtube.com/watch?v=Ij9YWgUQg_s" >}}
+
+
 The Court has changed a lot recently in its composition (and will continue to do so next term).
 
 <center>![](images/sccourt6.jpeg){width="40%"} ![](images/sccourt.jpg){width="35%"}</center>
@@ -370,7 +377,6 @@ Our evidence aligns with others:
 
 ![](images/sccourt2.png)
 
-
 ### Troubleshooting the loop
 
 Recall, the inside part of the loop should run if we set `i` to a particular value.
@@ -412,9 +418,7 @@ Why did the Court shift more conservative at the end of the time trend?
 
 -   Well we see that Justice Roberts and then Justice Kavanaugh became the median!
 
-
 ![[FiveThirtyEight](https://fivethirtyeight.com/features/the-supreme-courts-conservative-supermajority-is-just-beginning-to-flex-its-muscles)](images/sccourt3.png)
-
 
 As [FiveThirtyEight](https://fivethirtyeight.com/features/roberts-is-the-new-swing-justice-that-doesnt-mean-hes-becoming-more-liberal/) notes, just because Justice Roberts is the new median, does not mean he has become more liberal. The Court composition is shifting, and the MQ scores also depend on the issues being heard before the Court.
 
